@@ -1,4 +1,4 @@
-img{
+.frog{
     width: 20%;
     border-radius: 20%;
 }
@@ -6,4 +6,8 @@ img{
     margin-left: -10%;
     color: greenyellow;
     font-size: 60px;
+}
+
+.card{
+    width: 30%
 }
