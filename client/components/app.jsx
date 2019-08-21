@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header';
-import ProductListItem from './productlist';
+import ProductListItem from './productlistitem';
 
 export default class App extends React.Component {
   render() {
