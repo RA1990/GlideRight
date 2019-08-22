@@ -16,7 +16,17 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    return null;
+
+    return (
+      <div className="card p-3">
+        <img src={this.state.product} className="card-img-top" alt="item1" />
+        <div className="card-body">
+          <h5 className="card-title">{this.state.name}</h5>
+          <p className="card-text"><small className="text-muted">{this.state.price}</small></p>
+          <p className="card-text">{this.state.shortDescription}</p>
+        </div>
+      </div>
+    );
   }
 
 }
