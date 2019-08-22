@@ -14,7 +14,12 @@ export default class App extends React.Component {
     };
   }
   setView(name, params) {
-
+    this.setState({
+      view: {
+        name: name,
+        params: params
+      }
+    });
   }
 
   render() {
@@ -22,7 +27,7 @@ export default class App extends React.Component {
       <React.Fragment>
         <Header/>
         <ProductDetails/>
-        <ProductList />
+        <ProductList props={this.setView}/>
       </React.Fragment>
     );
   }
