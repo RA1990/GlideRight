@@ -8,6 +8,11 @@ class ProductList extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.getProduct();
+
+  }
+
   getProduct() {
     fetch('/api/products.php')
       .then(res => res.json());
