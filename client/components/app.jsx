@@ -6,7 +6,7 @@ export default class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header title="shop"/>,
+        <Header/>,
         <ProductList />
       </React.Fragment>
     );
