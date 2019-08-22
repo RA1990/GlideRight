@@ -7,9 +7,14 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'catalog',
-      params: {}
+      view: {
+        'name': 'catalog',
+        params: {}
+      }
     };
+  }
+  setView(name, params) {
+
   }
 
   render() {
