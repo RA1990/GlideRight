@@ -4,6 +4,14 @@ import ProductList from './productlist';
 import ProductDetails from './product-details';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      view: 'catalog',
+      params: {}
+    };
+  }
+
   render() {
     return (
       <React.Fragment>
