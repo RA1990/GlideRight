@@ -38,7 +38,7 @@ export default class App extends React.Component {
       return (
         <React.Fragment>
           <Header />
-          <ProductDetails onClick={this.setView}/>
+          <ProductDetails onClick={this.setView} params={this.state.view.params}/>
         </React.Fragment>
       );
     }

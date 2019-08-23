@@ -9,8 +9,8 @@ class ProductDetails extends React.Component {
   }
 
   componentDidMount(props) {
-
-    fetch('/api/products.php?id=1')
+    const currentparam = this.props.params.id;
+    fetch('/api/products.php?id=' + currentparam)
       .then(res => res.json())
       .then(res => this.setState({ product: res }));
   }
@@ -21,14 +21,17 @@ class ProductDetails extends React.Component {
     if (this.state.product != null) {
 
       return (
-        <div key={product.id} className="card p-3">
-          <img src={product.image} className="card-img-top" alt="item1" />
-          <div className="card-body">
-            <h5 className="card-title">{product.name}</h5>
-            <p className="card-text"><small className="text-muted">{product.price}</small></p>
-            <p className="card-text">{product.shortDescription}</p>
+        <React.Fragment>
+          <a href="">back to catlog</a>
+          <div key={product.id} className="card p-3">
+            <img src={product.image} className="card-img-top" alt="item1" />
+            <div className="card-body">
+              <h5 className="card-title">{product.name}</h5>
+              <p className="card-text">{product.shortDescription}</p>
+              <p className="card-text"><span className="badge badge-primary">${(product.price / 100).toFixed(2)}</span></p>
+            </div>
           </div>
-        </div>
+        </React.Fragment>
       );
 
     }
