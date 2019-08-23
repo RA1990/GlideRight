@@ -15,7 +15,5 @@ set_exception_handler('error_handler');
 if(!$conn) {
         throw new Exception("error:" . mysqli_connect_error());
       }
-$output = file_get_contents('dummy-products-list.json');
-print($output);
 
 ?>
