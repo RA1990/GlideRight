@@ -12,8 +12,10 @@ export default class App extends React.Component {
         params: {}
       }
     };
+    this.setView = this.setView.bind(this);
   }
   setView(name, params) {
+
     this.setState({
       view: {
         name: name,
@@ -23,20 +25,22 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (this.state.view.name === 'catalog' || this.state.view.name === 'details') {
+    if (this.state.view.name === 'catalog') {
+
       return (
         <React.Fragment>
           <Header/>
-          <ProductList setView={this.setView} viewParams={this.state.view.params}/>
+          <ProductList onClick={this.setView}/>
         </React.Fragment>
       );
     }
-
-    return (
-      <React.Fragment>
-        <Header />
-        <ProductDetails />
-      </React.Fragment>
-    );
+    if (this.state.view.name === 'details') {
+      return (
+        <React.Fragment>
+          <Header />
+          <ProductDetails onClick={this.setView}/>
+        </React.Fragment>
+      );
+    }
   }
 }

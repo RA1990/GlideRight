@@ -1,9 +1,10 @@
 import React from 'react';
 
 function ProductListItem(props) {
-
+  const name = 'details';
+  const params = { id: props.id };
   return (
-    <div className="card p-3">
+    <div onClick={() => props.onClick(name, params)} className="card p-3">
       <img src={props.image} className="card-img-top" alt="item1" />
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>

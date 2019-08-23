@@ -24,6 +24,8 @@ class ProductList extends React.Component {
       return (
         <div className="col-md-4" key={singleProductData.id}>
           <ProductListItem
+            id={singleProductData.id}
+            onClick={this.props.onClick}
             name={singleProductData.name}
             price={singleProductData.price}
             image={singleProductData.image}
