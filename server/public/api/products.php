@@ -1,15 +1,17 @@
 <?php
 
-
 require_once('./function.php');
 set_exception_handler('error_handler');
 startup();
 require_once('./db_connection.php');
-if(!empty($_GET['id'])){
-  $whereClause = "WHERE `id`=" . $_GET['id'];
-}else{
+if(empty($_GET['id'])){
   $whereClause = "";
-};
+}else if(!is_numeric($_GET['id'])){
+  throw new Exception("id needs to be a number");
+}else{
+  $whereClause = "WHERE `id`=" . $_GET['id'];
+}
+
 $query = "SELECT * FROM `wicked`" . $whereClause;
 $result = $conn->query($query);
 if (!$result) {
