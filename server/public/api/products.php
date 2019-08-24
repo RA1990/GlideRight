@@ -4,6 +4,7 @@ require_once('./function.php');
 set_exception_handler('error_handler');
 startup();
 require_once('./db_connection.php');
+
 if(empty($_GET['id'])){
   $whereClause = "";
 }else if(!is_numeric($_GET['id'])){
@@ -16,6 +17,9 @@ $query = "SELECT * FROM `wicked`" . $whereClause;
 $result = $conn->query($query);
 if (!$result) {
   throw new Exception("error:" . mysqli_connect_error());
+}
+if(mysqli_num_rows($result) === 0){
+  throw new Exception("invalid ID:" . $_GET['id']);
 }
 $data = [];
 while ($row = mysqli_fetch_assoc($result)) {
