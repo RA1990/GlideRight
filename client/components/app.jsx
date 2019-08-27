@@ -7,10 +7,10 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      cart: [],
       view: {
         'name': 'catalog',
-        params: {},
-        cart: []
+        params: {}
       }
     };
     this.setView = this.setView.bind(this);
@@ -39,7 +39,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <React.Fragment>
-          <Header/>
+          <Header cartItemCount={this.state.cart.length}/>
           <ProductList onClick={this.setView}/>
         </React.Fragment>
       );
@@ -47,7 +47,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'details') {
       return (
         <React.Fragment>
-          <Header />
+          <Header cartItemCount={this.state.cart.length}/>
           <ProductDetails onClick={this.setView} params={this.state.view.params}/>
         </React.Fragment>
       );
