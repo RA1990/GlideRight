@@ -17,23 +17,27 @@ class ProductDetails extends React.Component {
 
   render() {
 
-    const product = this.state.product;
+    const firstProduct = this.state.product;
     if (this.state.product != null) {
-
       return (
-        <React.Fragment>
-          <a href="">back to catlog</a>
-          <div key={product.id} className="card p-3">
-            <img src={product.image} className="card-img-top" alt="item1" />
-            <div className="card-body">
-              <h5 className="card-title">{product.name}</h5>
-              <p className="card-text">{product.shortDescription}</p>
-              <p className="card-text"><span className="badge badge-primary">${(product.price / 100).toFixed(2)}</span></p>
-            </div>
-          </div>
-        </React.Fragment>
-      );
+        <div className="container">
+          <div className="card p-5" key={firstProduct.id}>
+            <div><button onClick={() => this.props.onClick('catalog', {})}>
+              {'<'}  Back to Catalog
+            </button></div>
 
+            <div className="row">
+              <div className="col-12 col-md-8"><img src={firstProduct.image} /></div>
+              <div className="col-6 col-md-4"><h5>{firstProduct.name}</h5>
+                <p className="card-text">{firstProduct.shortDescription}</p>
+                <h4 className="card-text badge badge-pill badge-primary">${(firstProduct.price / 100).toFixed(2)}</h4>
+              </div>
+
+            </div>
+            <p className="card-text mt-4">{firstProduct.longDescription}</p>
+          </div>
+        </div>
+      );
     }
     return null;
   }
