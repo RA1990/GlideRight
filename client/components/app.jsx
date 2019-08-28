@@ -35,6 +35,20 @@ export default class App extends React.Component {
       .then(response => this.setState({ cart: response }));
   }
 
+  addToCart(product) {
+    const req = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(product)
+    };
+    fetch(`/api/cart.php`, req)
+      .then(res => res.json())
+      .then(countItem => {
+        const allItems = this.state.cart.concat(countItem);
+        this.setState({ cart: allItems });
+      });
+  }
+
   render() {
     if (this.state.view.name === 'catalog') {
       return (

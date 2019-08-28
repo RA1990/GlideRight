@@ -8,6 +8,13 @@
     font-size: 60px;
 }
 .cart{
+    margin-left: 30%;
     color: greenyellow;
     font-size: 5rem;
+}
+.cartcount{
+    margin-left: 2%;
+    position: absolute;
+    font-size: 25px;
+    margin-top: 1.5%;
 }
