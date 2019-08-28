@@ -32,7 +32,7 @@ class ProductDetails extends React.Component {
                 <p className="card-text">{firstProduct.shortDescription}</p>
                 <h4 className="card-text badge badge-pill badge-primary">${(firstProduct.price / 100).toFixed(2)}</h4>
                 <br/>
-                <button className="addCart">Add to Cart</button>
+                <button className="addCart" onClick={() => { this.props.cartItem(this.state.product); } }>Add to Cart</button>
               </div>
 
             </div>

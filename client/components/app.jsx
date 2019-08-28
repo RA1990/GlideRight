@@ -14,6 +14,7 @@ export default class App extends React.Component {
       }
     };
     this.setView = this.setView.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
   componentDidMount() {
     this.getCartItems();
