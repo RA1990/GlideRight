@@ -7,4 +7,24 @@
     color: greenyellow;
     font-size: 60px;
 }
-
+.cart{
+    margin-left: 30%;
+    color: greenyellow;
+    font-size: 5rem;
+}
+.cartcount{
+    margin-left: 2%;
+    position: absolute;
+    font-size: 25px;
+    margin-top: 1.5%;
+}
+.addCart {
+ text-decoration: none;
+ color: rgba(256, 255, 255, 0.8);
+ background: rgb(17, 177, 33);
+ padding: 15px 40px;
+ border-radius: 4px;
+ font-weight: normal;
+ text-transform: uppercase;
+ transition: all 0.2s ease-in-out;
+}
