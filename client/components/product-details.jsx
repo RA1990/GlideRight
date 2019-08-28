@@ -31,6 +31,8 @@ class ProductDetails extends React.Component {
               <div className="col-6 col-md-4"><h5>{firstProduct.name}</h5>
                 <p className="card-text">{firstProduct.shortDescription}</p>
                 <h4 className="card-text badge badge-pill badge-primary">${(firstProduct.price / 100).toFixed(2)}</h4>
+                <br/>
+                <button className="addCart">Add to Cart</button>
               </div>
 
             </div>
