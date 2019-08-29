@@ -11,7 +11,21 @@ function getCartTotal(cartItems) {
 
 function CartSummary(props) {
   if (props.cart.length === 0) {
-    return <div className="noItems">No Items</div>;
+    return (
+      <>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div><img className="frog" src="https://cdn.pixabay.com/photo/2016/01/29/22/04/frog-1168751_960_720.jpg" /></div>
+      <div className='title'>Frog Sales</div>
+      <div className="cart"><div className="cartcount" onClick={() => props.setView('cart', {})}>{props.cartItemCount}</div>&#128722;</div>
+    </nav>
+    <div className="container">
+      <button className="btn btn-link mt-4" onClick={() => props.setView('catalog', {})}>
+        {'<'}  Back to Catalog
+      </button>
+    </div>;
+    <div>No Items</div>
+    </>
+    );
   }
 
   var items = props.cart.map((item, index) => {
@@ -38,6 +52,8 @@ function CartSummary(props) {
       <p className="itemTotal">
         Item Total ${(total / 100).toFixed(2)}
       </p>
+      <div className="col-md-4 checkouButton"> <button onClick={() => { props.setView('checkout', {}); }} type="button" className="btn btn-outline-dark" >Checkout</button>
+      </div>
     </div>
   );
 }

@@ -31,3 +31,31 @@
 .container {
     margin-top: 20px;
 }
+form{
+    width: 50%;
+    margin-left: 20%;
+}
+H1,p{
+    margin-left: 20%;
+}
+.btn-dark{
+    float:right;
+}
+.mt-4{
+    display: contents;
+}
+.checkouButton{
+    display: inline-block;
+    margin-top: 1%;
+    float: right;
+}
+.itemTotal{
+    display: inline-block;
+    margin-right: 47%;
+    margin-left: 0%;
+    display: inline-block;
+    margin-top: 1%;
+}
+.cardSpaceItem{
+    width: 76%;
+}
