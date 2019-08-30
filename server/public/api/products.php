@@ -10,10 +10,14 @@ if(empty($_GET['id'])){
 }else if(!is_numeric($_GET['id'])){
   throw new Exception("id needs to be a number");
 }else{
-  $whereClause = "WHERE `id`=" . $_GET['id'];
+  $whereClause = "WHERE `wicked`.id=" . $_GET['id'];
 }
 
-$query = "SELECT * FROM `wicked`" . $whereClause;
+$query = "SELECT wicked.id,wicked.name,wicked.price,wicked.shortDescription,
+images.url
+FROM `wicked`
+JOIN `images`
+ON wicked.id=images.productId" . $whereClause;
 $result = $conn->query($query);
 if (!$result) {
   throw new Exception("error:" . mysqli_connect_error());
