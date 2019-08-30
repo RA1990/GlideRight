@@ -17,7 +17,7 @@ $query = "SELECT wicked.id,wicked.name,wicked.price,wicked.shortDescription,
 images.url
 FROM `wicked`
 JOIN `images`
-ON wicked.id=images.productId" . $whereClause;
+ON wicked.id=images.productId " . $whereClause;
 $result = $conn->query($query);
 if (!$result) {
   throw new Exception("error:" . mysqli_connect_error());
