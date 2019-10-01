@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './productlist';
 import ProductDetails from './product-details';
 import CartSummary from './cartSummary';
+import CheckoutForm from './checkoutForm';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -51,8 +52,39 @@ export default class App extends React.Component {
       });
   }
 
+  placeOrder(userOrderInfo) {
+
+    const userOrder = {
+      'name': userOrderInfo.customerName,
+      'creditCard': userOrderInfo.creditCardInfo,
+      'shippingAddress': userOrderInfo.shippingAddressInfo,
+      'cart': this.state.cart
+    };
+
+    const req = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userOrder)
+    };
+
+    fetch('/api/orders.php', req)
+      .then(res => res.json())
+      .then(orderItem => {
+        this.setState({ cart: [] });
+        this.setState({ name: 'catalog', params: {} });
+      });
+  }
+
   render() {
 
+    if (this.state.view.name === 'checkout') {
+      return (
+        <div>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+          <CheckoutForm userPaymentInfo={this.placeOrder} setView={this.setView} allItems={this.state.cart} />
+        </div>
+      );
+    }
     if (this.state.view.name === 'cart') {
       return (
         <React.Fragment>
