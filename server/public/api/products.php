@@ -12,7 +12,6 @@ if(empty($_GET['id'])){
 }else{
   $whereClause = "WHERE `wicked`.id=" . $_GET['id'];
 }
-
 $query = "SELECT wicked.id, wicked.name, wicked.price, wicked.shortDescription,
 GROUP_CONCAT(images.url) AS  images
 FROM  wicked
