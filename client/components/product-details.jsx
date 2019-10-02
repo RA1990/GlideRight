@@ -4,7 +4,7 @@ class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: null
+      product: []
     };
   }
 
@@ -12,11 +12,11 @@ class ProductDetails extends React.Component {
     const currentparam = this.props.params.id;
     fetch('/api/products.php?id=' + currentparam)
       .then(res => res.json())
+      .then(res => res[0])
       .then(res => this.setState({ product: res }));
   }
 
   render() {
-
     const firstProduct = this.state.product;
     if (this.state.product != null) {
       return (
@@ -27,7 +27,7 @@ class ProductDetails extends React.Component {
             </button></div>
 
             <div className="row">
-              <div className="col-12 col-md-8"><img src={firstProduct.image} /></div>
+              <div className="col-12 col-md-8"><img className="prodet"src={firstProduct.image} /></div>
               <div className="col-6 col-md-4"><h5>{firstProduct.name}</h5>
                 <p className="card-text">{firstProduct.shortDescription}</p>
                 <h4 className="card-text badge badge-pill badge-primary">${(firstProduct.price / 100).toFixed(2)}</h4>

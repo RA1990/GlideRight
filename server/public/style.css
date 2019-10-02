@@ -61,5 +61,12 @@ H1,p{
     width: 76%;
 }
 body{
-    background-image: url()
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://media.wired.com/photos/5954932fbe605811a2fdd6e9/master/pass/s5pOG7texzsXk-2VmYcDV-wSlTaReaaI76QjDkBci7QqWHH5gXVTOy3yhWv_3vbb2EL11iVzQOfsDpVDIR-Iko.jpeg");
+}
+.prodet{
+    height: 35vh;
+    width: 42vw;
 }

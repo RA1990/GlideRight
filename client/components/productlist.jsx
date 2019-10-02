@@ -22,7 +22,7 @@ class ProductList extends React.Component {
   render() {
     const products = this.state.products.map(singleProductData => {
       return (
-        <div className="col-md-4" key={singleProductData.id}>
+        <div className="round" key={singleProductData.id}>
           <ProductListItem
             id={singleProductData.id}
             onClick={this.props.onClick}
@@ -39,7 +39,7 @@ class ProductList extends React.Component {
 
     return (
       <div className="container">
-        <div className="row">
+        <div className="d-inline-flex flex-wrap justify-content-center pb-2">
           {products}
         </div>
       </div>
