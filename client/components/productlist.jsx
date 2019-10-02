@@ -22,16 +22,15 @@ class ProductList extends React.Component {
   render() {
     const products = this.state.products.map(singleProductData => {
       return (
-        <div className="round" key={singleProductData.id}>
-          <ProductListItem
-            id={singleProductData.id}
-            onClick={this.props.onClick}
-            name={singleProductData.name}
-            price={singleProductData.price}
-            image={singleProductData.image}
-            shortDescription={singleProductData.shortDescription}
-          />
-        </div>
+
+        <ProductListItem key={singleProductData.id}
+          id={singleProductData.id}
+          onClick={this.props.onClick}
+          name={singleProductData.name}
+          price={singleProductData.price}
+          image={singleProductData.image}
+          shortDescription={singleProductData.shortDescription}
+        />
 
       );
 
@@ -39,7 +38,7 @@ class ProductList extends React.Component {
 
     return (
       <div className="container">
-        <div className="d-inline-flex flex-wrap justify-content-center pb-2">
+        <div className="row">
           {products}
         </div>
       </div>
