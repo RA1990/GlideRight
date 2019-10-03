@@ -4,6 +4,7 @@ import ProductList from './productlist';
 import ProductDetails from './product-details';
 import CartSummary from './cartSummary';
 import CheckoutForm from './checkoutForm';
+import Jumbo from './jumbotron';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -96,6 +97,7 @@ export default class App extends React.Component {
       return (
         <React.Fragment>
           <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
+          <Jumbo/>
           <ProductList onClick={this.setView}/>
         </React.Fragment>
       );

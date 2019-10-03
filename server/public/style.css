@@ -60,7 +60,7 @@ H1,p{
 .cardSpaceItem{
     width: 76%;
 }
-body{
+.Jumbo{
     margin: 0;
     background-size: cover;
     background-repeat: no-repeat;
@@ -69,4 +69,7 @@ body{
 .prodet{
     height: 35vh;
     width: 42vw;
+}
+.card{
+    margin-left: 2%;
 }
