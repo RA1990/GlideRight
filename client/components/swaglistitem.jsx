@@ -1,7 +1,7 @@
 import React from 'react';
 
-function ProductListItem(props) {
-  const name = 'details';
+function SwagListItem(props) {
+  const name = 'swagdetails';
   const params = { id: props.id };
   return (
     <div onClick={() => props.onClick(name, params)} className="card col-md-3 mb-3 zoom">
@@ -16,4 +16,4 @@ function ProductListItem(props) {
 
 }
 
-export default ProductListItem;
+export default SwagListItem;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Jumbo(props) {
+function JumboAccessories(props) {
 
   return (
-    <div className="jumbotron jumbotron Jumbo">
+    <div className="jumbotron jumbotron JumboAccess text-light">
       <div className="overlay"></div>
       <div className="container">
-        <h1 className="display-3 mb-1">JUST <br></br>SKATE</h1>
+        <h1 className="display-3 mb-1">SKATE <br></br>HARD</h1>
         <p className="lead">start<span> your glide</span></p>
       </div>
     </div>
@@ -14,4 +14,4 @@ function Jumbo(props) {
 
 }
 
-export default Jumbo;
+export default JumboAccessories;

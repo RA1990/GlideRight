@@ -5,6 +5,13 @@ import ProductDetails from './product-details';
 import CartSummary from './cartSummary';
 import CheckoutForm from './checkoutForm';
 import Jumbo from './jumbotron';
+import Footer from './footer';
+import AccessoriesList from './accessorieslist';
+import AccessoriesDetails from './accessories-details';
+import SwagList from './swaglist';
+import SwagDetails from './swag-details';
+import JumboAccessories from './accessjumbo';
+import JumboSwag from './swagjumbo';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -77,19 +84,57 @@ export default class App extends React.Component {
   }
 
   render() {
-
+    if (this.state.view.name === 'accessdetails') {
+      return (
+        <React.Fragment>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+          <AccessoriesDetails onClick={this.setView} params={this.state.view.params} cartItem={this.addToCart} />
+        </React.Fragment>
+      );
+    }
+    if (this.state.view.name === 'swagdetails') {
+      return (
+        <React.Fragment>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+          <SwagDetails onClick={this.setView} params={this.state.view.params} cartItem={this.addToCart} />
+        </React.Fragment>
+      );
+    }
+    if (this.state.view.name === 'swag') {
+      return (
+        <React.Fragment>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+          <JumboSwag />
+          <SwagList onClick={this.setView} />
+          <Footer />
+        </React.Fragment>
+      );
+    }
+    if (this.state.view.name === 'accessories') {
+      return (
+        <React.Fragment>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+          <JumboAccessories />
+          <AccessoriesList onClick={this.setView}/>
+          <Footer />
+        </React.Fragment>
+      );
+    }
     if (this.state.view.name === 'checkout') {
       return (
         <div>
           <Header cartItemCount={this.state.cart.length} setView={this.setView} />
           <CheckoutForm userPaymentInfo={this.placeOrder} setView={this.setView} allItems={this.state.cart} />
+          <Footer/>
         </div>
       );
     }
     if (this.state.view.name === 'cart') {
       return (
         <React.Fragment>
+          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
           <CartSummary cart={this.state.cart} setView={this.setView}/>
+          <Footer />
         </React.Fragment>
       );
     }
@@ -99,6 +144,7 @@ export default class App extends React.Component {
           <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
           <Jumbo/>
           <ProductList onClick={this.setView}/>
+          <Footer/>
         </React.Fragment>
       );
     }

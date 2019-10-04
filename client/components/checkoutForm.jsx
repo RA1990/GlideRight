@@ -44,10 +44,10 @@ export default class CheckoutForm extends React.Component {
     return (
       <>
 
-        <h1>Checkout</h1>
-        <p>Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
+        <h1 className="textcolor">Checkout</h1>
+        <p className="textcolor">Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
 
-        <form onSubmit={this.handleSubmit}>
+        <form className="textcolor" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label >Name</label>
             <input type="text" value={this.state.customerName} onChange={this.handleNameChange} className="form-control" id="exampleFormControlInput1" placeholder="enter name" />

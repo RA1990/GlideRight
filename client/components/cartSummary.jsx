@@ -41,7 +41,7 @@ function CartSummary(props) {
 
   const total = getCartTotal(props.cart);
   return (
-    <div className="container">
+    <div className="container textcolor">
       <button className="btn btn-link mt-4" onClick={() => props.setView('catalog', {})}>
         {'<'}  Back to Catalog
       </button>

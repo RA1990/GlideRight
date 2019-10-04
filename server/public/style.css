@@ -1,15 +1,37 @@
-.frog{
-    width: 20%;
+.logo{
+    width: 40%;
     border-radius: 20%;
 }
-.title{
-    margin-left: -10%;
-    color: greenyellow;
-    font-size: 60px;
+.title1{
+    cursor: pointer;
+    margin-right: 30%;
+    color: aliceblue;
+    font-size: 24px;
+}
+.title1:hover {
+  transform: scale(1.2);
+  transition: transform .2s;
+}
+.foot{
+    margin-top: 7%;
+    height: 20vh;
+}
+.imagerow{
+    border-radius: 3%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF9V4i7pjHs1mtEBdTKXSQGERzVUw_hDK6PEWPi0MOBktOFkWo");
+}
+body{
+    background-color:black;
+}
+.textcolor{
+    margin-left: 22%;
+    color: aliceblue;
 }
 .cart{
-    margin-left: 30%;
-    color: greenyellow;
+    margin-left: 58%;
+    color:aliceblue;
     font-size: 5rem;
 }
 .cartcount{
@@ -29,6 +51,7 @@
  transition: all 0.2s ease-in-out;
 }
 .container {
+    margin-right: 11%;
     margin-top: 20px;
 }
 form{
@@ -61,15 +84,46 @@ H1,p{
     width: 76%;
 }
 .Jumbo{
+    height: 85vh;
     margin: 0;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url("https://media.wired.com/photos/5954932fbe605811a2fdd6e9/master/pass/s5pOG7texzsXk-2VmYcDV-wSlTaReaaI76QjDkBci7QqWHH5gXVTOy3yhWv_3vbb2EL11iVzQOfsDpVDIR-Iko.jpeg");
 }
+.JumboAccess{
+    height: 85vh;
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://content.fortune.com/wp-content/uploads/2016/01/inboard1569.jpg");
+}
+.JumboSwag{
+    height: 85vh;
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://cdn.shopify.com/s/files/1/0014/8743/7901/files/Exway_Electric_Skateboards_Ocean_Profile_1600x.jpg?v=1550959946");
+}
 .prodet{
-    height: 35vh;
+    height: 42vh;
     width: 42vw;
 }
 .card{
-    margin-left: 2%;
+    margin-top: 3%;
+    margin-left: 6%;
+}
+.card-body{
+    margin-top: 4%;
+    background-color: black;
+    color: aliceblue;
+    margin-bottom: 4%;
+    border-radius: 2%;
+}
+.card-body:hover {
+    cursor: pointer;
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+  transition: transform .2s;
 }

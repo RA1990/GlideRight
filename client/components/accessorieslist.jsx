@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductListItem from './productlistitem';
+import AccessoriesListItem from './accessorieslistitem';
 
-class ProductList extends React.Component {
+class AccessoriesList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ class ProductList extends React.Component {
   }
 
   getProduct() {
-    fetch('/api/products.php')
+    fetch('/api/accessorieslist.php')
       .then(res => res.json())
       .then(res => this.setState({ products: res }));
   }
@@ -23,7 +23,7 @@ class ProductList extends React.Component {
     const products = this.state.products.map(singleProductData => {
       return (
 
-        <ProductListItem key={singleProductData.id}
+        <AccessoriesListItem key={singleProductData.id}
           id={singleProductData.id}
           onClick={this.props.onClick}
           name={singleProductData.name}
@@ -48,4 +48,4 @@ class ProductList extends React.Component {
 
 }
 
-export default ProductList;
+export default AccessoriesList;
