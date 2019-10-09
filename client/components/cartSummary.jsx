@@ -4,7 +4,7 @@ import CartSummaryItem from './cartSummaryItem';
 function getCartTotal(cartItems) {
   var total = 0;
   for (var cartItemIndex = 0; cartItemIndex < cartItems.length; cartItemIndex++) {
-    total += cartItems[cartItemIndex].price;
+    total += parseInt(cartItems[cartItemIndex].price);
   }
   return total;
 }
@@ -31,6 +31,8 @@ function CartSummary(props) {
   var items = props.cart.map((item, index) => {
     return (
       <CartSummaryItem key={index}
+        addToCart={props.addToCart}
+        count={item.count}
         image={item.image}
         name={item.name}
         price={item.price}
@@ -40,7 +42,9 @@ function CartSummary(props) {
   });
 
   const total = getCartTotal(props.cart);
+
   return (
+
     <div className="container textcolor">
       <button className="btn btn-link mt-4" onClick={() => props.setView('catalog', {})}>
         {'<'}  Back to Catalog

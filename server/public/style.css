@@ -30,6 +30,7 @@ body{
     color: aliceblue;
 }
 .cart{
+    cursor: pointer;
     margin-left: 58%;
     color:aliceblue;
     font-size: 5rem;
@@ -126,4 +127,9 @@ H1,p{
 .zoom:hover {
   transform: scale(1.1);
   transition: transform .2s;
+}
+.center{
+  width: 60px;
+  margin: 40px auto;
+
 }

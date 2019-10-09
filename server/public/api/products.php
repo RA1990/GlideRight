@@ -3,7 +3,6 @@ require_once('db_connection.php');
 header('Content-Type: application/json');
 
 if (empty($_GET['id'])) {
-  // readfile('dummy-products-list.json');
   $query = "SELECT * FROM `wicked`";
   $result = mysqli_query($conn, $query);
   if (!$result) {
@@ -15,7 +14,6 @@ if (empty($_GET['id'])) {
   }
   print(json_encode($data));
 } else {
-  // readfile('dummy-product-details.json' . $_GET['id']);
   $query = "SELECT * FROM `wicked`
   WHERE id =" . $_GET['id'];
   $result = mysqli_query($conn, $query);

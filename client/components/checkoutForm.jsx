@@ -32,10 +32,10 @@ export default class CheckoutForm extends React.Component {
   }
 
   getCartTotal() {
-    var cartTotalItem = this.props.allItems;
-    var total = 0;
-    for (var i = 0; i < cartTotalItem.length; i++) {
-      total += cartTotalItem[i].price;
+    let cartTotalItem = this.props.allItems;
+    let total = 0;
+    for (let i = 0; i < cartTotalItem.length; i++) {
+      total += parseInt(cartTotalItem[i].price);
     }
     return total;
   }
@@ -50,12 +50,12 @@ export default class CheckoutForm extends React.Component {
         <form className="textcolor" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label >Name</label>
-            <input type="text" value={this.state.customerName} onChange={this.handleNameChange} className="form-control" id="exampleFormControlInput1" placeholder="enter name" />
+            <input type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className="form-control" id="exampleFormControlInput1" placeholder="enter name" />
           </div>
 
           <div className="form-group">
             <label>Credit Card</label>
-            <input type="text" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className="form-control" id="exampleFormControlInput1" placeholder="enter credit card" />
+            <input type="text" pattern="^\d{10}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className="form-control" id="exampleFormControlInput1" placeholder="enter credit card 10 digits no space" />
           </div>
 
           <div className="form-group">
