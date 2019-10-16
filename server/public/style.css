@@ -2,6 +2,26 @@
     width: 40%;
     border-radius: 20%;
 }
+.delete{
+    margin-left: 200%;
+}
+.plusMinusButton{
+    width: 50%;
+}
+.color{
+    margin-left: 3%;
+    color: aliceblue;
+}
+.copy{
+    color: aliceblue;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.contact{
+    color: aliceblue;
+    margin-top: -3%;
+    margin-right: 3%;
+}
 .title1{
     cursor: pointer;
     margin-right: 30%;

@@ -2,9 +2,9 @@ import React from 'react';
 import CartSummaryItem from './cartSummaryItem';
 
 function getCartTotal(cartItems) {
-  var total = 0;
-  for (var cartItemIndex = 0; cartItemIndex < cartItems.length; cartItemIndex++) {
-    total += parseInt(cartItems[cartItemIndex].price);
+  let total = 0;
+  for (let cartItemIndex = 0; cartItemIndex < cartItems.length; cartItemIndex++) {
+    total += parseInt(cartItems[cartItemIndex].price * cartItems[cartItemIndex].count);
   }
   return total;
 }
@@ -28,9 +28,10 @@ function CartSummary(props) {
     );
   }
 
-  var items = props.cart.map((item, index) => {
+  let items = props.cart.map((item, index) => {
     return (
       <CartSummaryItem key={index}
+        id={item.id}
         addToCart={props.addToCart}
         count={item.count}
         image={item.image}
@@ -38,11 +39,9 @@ function CartSummary(props) {
         price={item.price}
         shortDescription={item.shortDescription} />
     );
-
   });
 
   const total = getCartTotal(props.cart);
-
   return (
 
     <div className="container textcolor">

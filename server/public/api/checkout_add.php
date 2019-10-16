@@ -12,7 +12,7 @@ if ($bodyData['count'] <= 0) {
   throw new Exception("count is invalid");
 }
 
-$id = $bodyData['product']['id'];
+$id = $bodyData['id'];
 
 if ($id <= 0) {
   throw new Exception("Id is invalid");

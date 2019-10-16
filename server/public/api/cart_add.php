@@ -5,8 +5,10 @@ if (!INTERNAL) {
 }
 $bodyData = getBodyData();
 
-$count = $bodyData['count'];
 
+
+
+$count = $bodyData['count'];
 
 if ($bodyData['count'] <= 0) {
   throw new Exception("count is invalid");
@@ -57,8 +59,13 @@ if(!$cartID) {
 }
 $price  = $productData[0]['price'];
 
+if($count === 99){
+  $insertToTableQuery = "INSERT INTO `cartItems` SET `count`=$count, `productID`=$id, `price`=$price,
+ `cartID`= $cartID ON DUPLICATE KEY UPDATE `count`=`count`- 1";
+}else{
 $insertToTableQuery = "INSERT INTO `cartItems` SET `count`=$count, `productID`=$id, `price`=$price,
  `cartID`= $cartID ON DUPLICATE KEY UPDATE `count`=`count`+ $count";
+}
 
 $insertToTableResult = mysqli_query($conn, $insertToTableQuery);
 

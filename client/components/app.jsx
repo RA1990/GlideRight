@@ -84,7 +84,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'checkout') {
       return (
         <div>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+          <Header cartItemCount={this.state.cart} setView={this.setView} />
           <CheckoutForm userPaymentInfo={this.placeOrder} setView={this.setView} allItems={this.state.cart} />
           <Footer/>
         </div>
@@ -93,7 +93,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'cart') {
       return (
         <React.Fragment>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView} />
+          <Header cartItemCount={this.state.cart} setView={this.setView} />
           <CartSummary cart={this.state.cart} addToCart={this.addToCart} setView={this.setView}/>
           <Footer />
         </React.Fragment>
@@ -102,7 +102,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <React.Fragment>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
+          <Header cartItemCount={this.state.cart} setView={this.setView}/>
           <Jumbo/>
           <ProductList onClick={this.setView}/>
           <Footer/>
@@ -112,7 +112,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'details') {
       return (
         <React.Fragment>
-          <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
+          <Header cartItemCount={this.state.cart} setView={this.setView}/>
           <ProductDetails onClick={this.setView} params={this.state.view.params} cartItem={this.addToCart}/>
         </React.Fragment>
       );

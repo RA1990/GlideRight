@@ -4,38 +4,85 @@ class CartSummaryItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cartTotalQuantity: props.count
+      userId: parseInt(this.props.id),
+      product: [],
+      cartTotalQuantity: parseInt(this.props.count),
+      price: parseInt(this.props.price),
+      originalPrice: parseInt(this.props.price)
     };
 
     this.subQuantityOfProduct = this.subQuantityOfProduct.bind(this);
     this.plusQuantityOfProduct = this.plusQuantityOfProduct.bind(this);
+    this.getCartItems = this.getCartItems.bind(this);
+    this.subFromCart = this.subFromCart.bind(this);
+    this.addCart = this.addCart.bind(this);
+    this.getProduct = this.getProduct.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
-  addToCart(product, count) {
-    const addToCart = [];
-    const req = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        product: product,
-        count: count
-      })
-    };
-    addToCart.push(fetch(`/api/checkout_add.php`, req)
-      .then(req => req.json()));
-    Promise.allSettled(addToCart).then(this.getCartItems);
+  getProduct() {
+    const currentparam = this.props.id;
+    (fetch('/api/products.php?id=' + currentparam)
+      .then(res => res.json())
+      .then(res => res[0])
+      .then(res => this.setState({ product: res })));
+    setTimeout(
+      function () {
+        this.getCartItems();
+      }
+        .bind(this),
+      990000
+    );
+
+  }
+
+  componentDidMount(props) {
+    this.getProduct();
+
+  }
+  deleteItem() {
+    const currentparam = this.props.id;
+    fetch(`/api/deleteitem.php?id=` + currentparam)
+      .then(res => window.location.reload(false));
+
+  }
+  getCartItems() {
+    fetch(`/api/cart.php`)
+      .then(res => res.json())
+      .then(response => this.setState({ product: response }));
+  }
+  subFromCart(product, id) {
+    if (this.state.cartTotalQuantity <= 1) {
+      return undefined;
+    } else {
+      this.props.addToCart(product, id);
+    }
+  }
+  addCart(product, id) {
+    if (this.state.cartTotalQuantity > 9) {
+      return undefined;
+    } else {
+      this.props.addToCart(product, id);
+    }
   }
   plusQuantityOfProduct() {
-    if (this.state.cartQuantity < 0 || this.state.cartTotalQuantity === 10) {
+    const addcart = () => { this.addCart(this.state.product, 1); };
+    addcart();
+    if (this.state.cartTotalQuantity > 9) {
       return;
     }
-
-    this.setState({ cartTotalQuantity: parseInt(this.state.cartTotalQuantity) + 1 });
+    this.setState({ cartTotalQuantity: this.state.cartTotalQuantity + 1 });
+    this.setState({ price: parseInt(this.state.originalPrice) * parseInt(this.state.cartTotalQuantity) });
+    this.getProduct();
   }
   subQuantityOfProduct() {
+    const addcart = () => this.subFromCart(this.state.product, 99);
+    addcart();
     if (this.state.cartTotalQuantity <= 1) {
-      return 'g';
+      return;
     }
-    return 'h';
+    this.setState({ cartTotalQuantity: this.state.cartTotalQuantity - 1 });
+    this.setState({ price: parseInt(this.state.originalPrice) * parseInt(this.state.cartTotalQuantity) });
+    this.getProduct();
   }
   render() {
 
@@ -47,7 +94,7 @@ class CartSummaryItem extends React.Component {
           </div>
           <div className="col-6 col-md-4 short">
             <h5 className="card-title">{this.props.name}</h5>
-            <div className="input-group">
+            <div className="plusMinusButton input-group">
               <span className="input-group-btn">
                 <button onClick={this.subQuantityOfProduct} type="button" className="btn btn-danger btn-number" data-type="minus" data-field="quant[2]">
                   <span className="glyphicon glyphicon-minus">-</span>
@@ -56,11 +103,12 @@ class CartSummaryItem extends React.Component {
               <input type="text" name="quant[2]" className="form-control input-number" value={this.state.cartTotalQuantity} min="1" max="10" />
               <span className="input-group-btn">
                 <button onClick={this.plusQuantityOfProduct} type="button" className="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
-                  <span onClick={() => this.props.addToCart(this.state.product, this.state.cartTotalQuantity)} className="glyphicon glyphicon-plus">+</span>
+                  <span className="glyphicon glyphicon-plus">+</span>
                 </button>
               </span>
             </div>
-            <p className="card-text badge badge-primary">{(this.props.price / 100).toFixed(2)}</p>
+            <button onClick={this.deleteItem} type="button" className="delete btn btn-danger" >Delete</button>
+            <p className="card-text badge badge-primary">{(this.state.originalPrice * this.state.cartTotalQuantity / 100).toFixed(2)}</p>
             <p className="card-text">{this.props.shortDescription}</p>
           </div>
         </div>

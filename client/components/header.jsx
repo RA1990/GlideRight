@@ -1,6 +1,8 @@
 import React from 'react';
 
 function Header(props) {
+  let cartCount = 0;
+  props.cartItemCount.map(res => { cartCount += parseInt(res.count); });
   return (
 
     <React.Fragment>
@@ -9,7 +11,7 @@ function Header(props) {
         <div className="d-flex justify-content-between mt-5">
           <h3 className='title1' onClick={() => props.setView('catalog', {})}>Boards</h3>
         </div>
-        <div className="cart"><div className="cartcount" onClick={() => props.setView('cart', {})}>{props.cartItemCount}</div>&#128722;</div>
+        <div className="cart"><div className="cartcount" onClick={() => props.setView('cart', {})}>{cartCount}</div>&#128722;</div>
       </nav>
     </React.Fragment>
   );
