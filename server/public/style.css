@@ -8,9 +8,28 @@
 .plusMinusButton{
     width: 50%;
 }
+.noItem{
+    margin-bottom: 24%;
+}
 .color{
     margin-left: 3%;
     color: aliceblue;
+}
+.modaltop{
+    margin-top: 50%;
+}
+#show{
+    font-size: 30px;
+    text-align:center;
+    height: 100%;
+    display: block;
+    background-color: rgba(100,100,100,0.7);
+}
+#hide{
+    display: none;
+}
+.modalButton{
+ margin-right: 40%;
 }
 .copy{
     color: aliceblue;
@@ -34,7 +53,7 @@
 }
 .foot{
     margin-top: 7%;
-    height: 20vh;
+    height: 20%;
 }
 .imagerow{
     border-radius: 3%;

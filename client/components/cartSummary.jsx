@@ -13,17 +13,14 @@ function CartSummary(props) {
   if (props.cart.length === 0) {
     return (
       <>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-      <div><img className="frog" src="https://cdn.pixabay.com/photo/2016/01/29/22/04/frog-1168751_960_720.jpg" /></div>
-      <div className='title'>Frog Sales</div>
-      <div className="cart"><div className="cartcount" onClick={() => props.setView('cart', {})}>{props.cartItemCount}</div>&#128722;</div>
-    </nav>
     <div className="container">
       <button className="btn btn-link mt-4" onClick={() => props.setView('catalog', {})}>
         {'<'}  Back to Catalog
       </button>
     </div>;
-    <div>No Items</div>
+    <div>
+      <span className=" mt-5 d-block p-2 bg-dark text-white text-center noItem">No Items</span>
+    </div>
     </>
     );
   }

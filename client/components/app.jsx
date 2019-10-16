@@ -27,7 +27,6 @@ export default class App extends React.Component {
   }
 
   setView(name, params) {
-
     this.setState({
       view: {
         name: name,

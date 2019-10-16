@@ -4,7 +4,7 @@ function Footer(props) {
   return (
 
     <React.Fragment>
-      <footer className=" mt-5 pt-4 foot page-footer font-small pt-4 navbar-dark bg-dark">
+      <footer className=" mt-5 pt-4 foot page-footer font-large pt-4 navbar-dark bg-dark">
         <div className="container">
           <ul className="list-unstyled list-inline text-center">
             <li className="list-inline-item">
