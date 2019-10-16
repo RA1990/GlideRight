@@ -4,6 +4,7 @@ export default class CheckoutForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      placeOrder: false,
       'customerName': '',
       'creditCardInfo': '',
       'shippingAddressInfo': ''
@@ -13,6 +14,10 @@ export default class CheckoutForm extends React.Component {
     this.handleShippingAddressInfo = this.handleShippingAddressInfo.bind(this);
     this.getCartTotal = this.getCartTotal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOrder = this.handleOrder.bind(this);
+  }
+  handleOrder() {
+    this.setState({ placeOrder: true });
   }
 
   handleNameChange(event) {
@@ -41,6 +46,23 @@ export default class CheckoutForm extends React.Component {
   }
 
   render() {
+    if (this.state.placeOrder === true) {
+      return (
+      <>
+        <div className="container">
+          <button className="btn btn-link mt-4" onClick={() => this.props.setView('catalog', {})}>
+            {'<'}  Back to Catalog
+          </button>
+        </div>;
+    <div className=" mt-5 d-block p-2 bg-dark text-white text-center checkout">
+      <span>Thank You For Ordering</span>
+      <h2>Your Order Number is </h2>
+      <h2>{ Math.floor(Math.random() * 1000000000) }</h2>
+    </div>
+      </>
+      );
+    }
+
     return (
       <>
 
@@ -71,8 +93,7 @@ export default class CheckoutForm extends React.Component {
                 </button>
               </div>
               <div className="col">
-                <button type="submit" className="btn btn-dark">Place Order</button>
-
+                <button onClick={this.handleOrder} type="submit" className="btn btn-dark">Place Order</button>
               </div>
             </div>
           </div>
