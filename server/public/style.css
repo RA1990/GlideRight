@@ -1,0 +1,180 @@
+.logo{
+    width: 40%;
+    border-radius: 20%;
+}
+.delete{
+    margin-left: 200%;
+}
+.plusMinusButton{
+    width: 50%;
+}
+.checkout{
+    border-radius: 1%;
+    width: 50vw;
+    margin-left: 24%;
+    margin-bottom: 17%;
+}
+.noItem{
+    margin-bottom: 24%;
+}
+.color{
+    margin-left: 3%;
+    color: aliceblue;
+}
+.modaltop{
+    margin-top: 50%;
+}
+#show{
+    font-size: 30px;
+    text-align:center;
+    height: 100%;
+    display: block;
+    background-color: rgba(100,100,100,0.7);
+}
+#hide{
+    display: none;
+}
+.modalButton{
+ margin-right: 40%;
+}
+.copy{
+    color: aliceblue;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.contact{
+    color: aliceblue;
+    margin-top: -3%;
+    margin-right: 3%;
+}
+.title1{
+    cursor: pointer;
+    margin-right: 30%;
+    color: aliceblue;
+    font-size: 24px;
+}
+.title1:hover {
+  transform: scale(1.2);
+  transition: transform .2s;
+}
+.foot{
+    margin-top: 7%;
+    height: 20%;
+}
+.imagerow{
+    border-radius: 3%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF9V4i7pjHs1mtEBdTKXSQGERzVUw_hDK6PEWPi0MOBktOFkWo");
+}
+body{
+    background-color:black;
+}
+.textcolor{
+    margin-left: 22%;
+    color: aliceblue;
+}
+.cart{
+    cursor: pointer;
+    margin-left: 58%;
+    color:aliceblue;
+    font-size: 5rem;
+}
+.cartcount{
+    margin-left: 2%;
+    position: absolute;
+    font-size: 25px;
+    margin-top: 1.5%;
+}
+.addCart {
+ text-decoration: none;
+ color: rgba(256, 255, 255, 0.8);
+ background: rgb(17, 177, 33);
+ padding: 15px 40px;
+ border-radius: 4px;
+ font-weight: normal;
+ text-transform: uppercase;
+ transition: all 0.2s ease-in-out;
+}
+.container {
+    margin-right: 11%;
+    margin-top: 20px;
+}
+form{
+    width: 50%;
+    margin-left: 20%;
+}
+H1,p{
+    margin-left: 20%;
+}
+.btn-dark{
+    float:right;
+}
+.mt-4{
+    display: contents;
+}
+.checkouButton{
+    display: inline-block;
+    margin-top: 1%;
+    float: right;
+}
+.itemTotal{
+    display: inline-block;
+    margin-right: 47%;
+    margin-left: 0%;
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.cardSpaceItem{
+    width: 76%;
+}
+.Jumbo{
+    height: 85vh;
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://media.wired.com/photos/5954932fbe605811a2fdd6e9/master/pass/s5pOG7texzsXk-2VmYcDV-wSlTaReaaI76QjDkBci7QqWHH5gXVTOy3yhWv_3vbb2EL11iVzQOfsDpVDIR-Iko.jpeg");
+}
+.JumboAccess{
+    height: 85vh;
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://content.fortune.com/wp-content/uploads/2016/01/inboard1569.jpg");
+}
+.JumboSwag{
+    height: 85vh;
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://cdn.shopify.com/s/files/1/0014/8743/7901/files/Exway_Electric_Skateboards_Ocean_Profile_1600x.jpg?v=1550959946");
+}
+.prodet{
+    height: 42vh;
+    width: 42vw;
+}
+.card{
+    margin-top: 3%;
+    margin-left: 6%;
+}
+.card-body{
+    margin-top: 4%;
+    background-color: black;
+    color: aliceblue;
+    margin-bottom: 4%;
+    border-radius: 2%;
+}
+.card-body:hover {
+    cursor: pointer;
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+  transition: transform .2s;
+}
+.center{
+  width: 60px;
+  margin: 40px auto;
+
+}
