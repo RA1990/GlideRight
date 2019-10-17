@@ -17,6 +17,14 @@ export default class CheckoutForm extends React.Component {
     this.handleOrder = this.handleOrder.bind(this);
   }
   handleOrder() {
+    let name = this.state.customerName;
+    let credit = this.state.creditCardInfo;
+    if (!name.match(/^([a-zA-Z\-'\s]+)$/)) {
+      return undefined;
+    }
+    if (!credit.match(/^(^\d{10}$)$/)) {
+      return undefined;
+    }
     this.setState({ placeOrder: true });
   }
 
@@ -93,7 +101,7 @@ export default class CheckoutForm extends React.Component {
                 </button>
               </div>
               <div className="col">
-                <button onClick={this.handleOrder} type="submit" className="btn btn-dark">Place Order</button>
+                <button onClick={this.handleOrder} type="button" className="btn btn-dark">Place Order</button>
               </div>
             </div>
           </div>
