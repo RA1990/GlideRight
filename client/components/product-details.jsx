@@ -30,20 +30,16 @@ class ProductDetails extends React.Component {
     if (this.state.cartQuantity < 1 || this.state.cartQuantity === 10) {
       return undefined;
     } else {
-      this.setState(prevState => {
-        return { cartQuantity: prevState.cartQuantity + 1 };
-      });
+      this.setState({ cartQuantity: this.state.cartQuantity += 1 });
       const newPrice = parseInt(this.state.originalPrice) * parseInt(this.state.cartQuantity);
       this.setState({ price: newPrice });
     }
   }
   minusQuantityOfProduct() {
     if (this.state.cartQuantity <= 1) {
-      return;
+      return undefined;
     }
-    this.setState(prevState => {
-      return { cartQuantity: prevState.cartQuantity - 1 };
-    });
+    this.setState({ cartQuantity: this.state.cartQuantity -= 1 });
     this.setState({ price: parseInt(this.state.product.price) * parseInt(this.state.cartQuantity) });
   }
 
