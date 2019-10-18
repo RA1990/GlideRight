@@ -12,8 +12,7 @@ $cartID = null;
 
 
 if (empty($_SESSION['cartID'])) {
-  print(getBodyData([]));
-  throw new exception("must have a valid product id to add to cart");
+  print("[]");
   exit();
 } else {
   $cartId = intval($_SESSION['cartID']);
@@ -22,7 +21,7 @@ if (empty($_SESSION['cartID'])) {
   $query = "SELECT cartItems.count, wicked.id, wicked.name, wicked.price, wicked.shortDescription, wicked.image FROM `cartItems` JOIN `wicked` ON cartItems.productID = wicked.id";
 
   $result = mysqli_query($conn, $query);
-  
+
   $data = [];
   while($row = mysqli_fetch_assoc($result)) {
     $data[] = $row;
