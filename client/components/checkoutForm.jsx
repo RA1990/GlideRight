@@ -4,17 +4,22 @@ export default class CheckoutForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      modal: 'show',
       placeOrder: false,
       'customerName': '',
       'creditCardInfo': '',
       'shippingAddressInfo': ''
     };
+    this.modal = this.modal.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
     this.handleShippingAddressInfo = this.handleShippingAddressInfo.bind(this);
     this.getCartTotal = this.getCartTotal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOrder = this.handleOrder.bind(this);
+  }
+  modal() {
+    this.setState({ modal: 'hide' });
   }
   handleOrder() {
     let name = this.state.customerName;
@@ -73,7 +78,18 @@ export default class CheckoutForm extends React.Component {
 
     return (
       <>
-
+        <div className="modal" id={this.state.modal} role="dialog">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content modaltop">
+              <div className="modal-body">
+                <p className="mr-5">This is a demo site there are no products for sale</p>
+              </div>
+              <div className="modal-footer">
+                <button onClick={this.modal} type="button" className="btn btn-secondary modalButton" data-dismiss="modal">I Agree</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <h1 className="textcolor">Checkout</h1>
         <p className="textcolor">Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
 
@@ -101,7 +117,7 @@ export default class CheckoutForm extends React.Component {
                 </button>
               </div>
               <div className="col">
-                <button onClick={this.handleOrder} type="button" className="btn btn-dark">Place Order</button>
+                <button onClick={this.handleOrder} type="button" className="btn placeOrder btn-primary">Place Order</button>
               </div>
             </div>
           </div>
