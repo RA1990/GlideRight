@@ -76,7 +76,7 @@ body{
 }
 .cart{
     cursor: pointer;
-    margin-left: 58%;
+    margin-left: 65%;
     color:aliceblue;
     font-size: 5rem;
 }
@@ -107,7 +107,7 @@ form{
 H1,p{
     margin-left: 20%;
 }
-.btn-dark{
+.placeOrder{
     float:right;
 }
 .mt-4{
