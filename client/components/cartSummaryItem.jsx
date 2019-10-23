@@ -42,7 +42,7 @@ class CartSummaryItem extends React.Component {
   deleteItem() {
     const currentparam = this.props.id;
     fetch(`/api/deleteitem.php?id=` + currentparam)
-      .then(res => window.location.reload(false));
+      .then(res => window.location.href = '');
 
   }
   getCartItems() {

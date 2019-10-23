@@ -52,7 +52,7 @@ function CartSummary(props) {
       <p className="itemTotal">
         Item Total ${(total / 100).toFixed(2)}
       </p>
-      <div className="col-md-4 checkouButton"> <button onClick={() => { props.setView('checkout', {}); }} type="button" className="btn  btn-primary" >Checkout</button>
+      <div className="col-md-4 checkouButton"> <button onClick={() => { props.setView('checkout', {}); }} type="button" className="checkoutBtn btn  btn-primary" >Checkout</button>
       </div>
     </div>
   );

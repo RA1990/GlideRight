@@ -2,6 +2,10 @@
     width: 40%;
     border-radius: 20%;
 }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .delete{
     margin-left: 200%;
 }
@@ -72,6 +76,13 @@ body{
 }
 .textcolor{
     margin-left: 22%;
+    color: aliceblue;
+}
+.checkoutTextColor{
+    margin-left: 16%;
+    color: aliceblue;
+}
+.checkoutBtn{
     color: aliceblue;
 }
 .cart{
@@ -177,4 +188,175 @@ H1,p{
   width: 60px;
   margin: 40px auto;
 
+}
+/*media start here*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {/*ipad*/
+.cartcount{
+  margin-top: 2.5%;
+}
+.imagerow{
+  margin-left: 3%;
+}
+.textcolor{
+  margin-left: 14%;
+}
+.checkoutBtn{
+  margin-left: -7%;
+}
+.noItem {
+    margin-bottom: 32%;
+}
+.checkout{
+    margin-bottom: 23%;
+}
+.plusMinusButton {
+    width: 55%;
+}
+.container{
+    margin-top: 5px;
+}
+.modaltop {
+    margin-top: 57%;
+}
+.foot{
+    height: 21vh;
+}
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {/*ipad*/
+.cart{
+    margin-left: 0%;
+}
+.cartcount{
+    margin-top: 2.5%;
+    margin-left: 3%;
+}
+.title1{
+    margin-left: -283%;
+}
+.Jumbo{
+    height: 51vh;
+}
+.plusMinusButton {
+    width: 83%;
+}
+.textcolor {
+    margin-left: 16%;
+}
+.checkoutBtn {
+    margin-top: -30%;
+    margin-left: -21%;
+}
+.imagerow{
+    margin-left: -5%;
+    margin-right: -13%;
+}
+.modaltop {
+    margin-top: 76%;
+}
+.checkoutTextColor {
+    margin-left: 15%;
+    margin-bottom: 10%;
+    margin-top: 11%;
+}
+.checkout{
+    margin-bottom: 64%;
+}
+}
+
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){/*iphone*/
+.cart{
+    margin-left: 0%;
+}
+.cartcount{
+    margin-top: 3.5%;
+    margin-left: 4%;
+}
+.title1 {
+    margin-left: -270%;
+}
+.card-img-top {
+    width: 40%;
+}
+.contact {
+    margin-top: -6%;
+}
+.imagerow{
+    background-image: none;
+}
+.plusMinusButton {
+    width: 74%;
+}
+.delete {
+    margin-left: 162%;
+}
+.card-img {
+    width: 35%;
+}
+.textcolor{
+    margin-left: 20%;
+}
+.checkouButton {
+    margin-left: 54%;
+    float: none;
+    margin-top: 0%;
+}
+.modaltop {
+    margin-top: 15%;
+}
+.checkoutTextColor {
+    margin-left: 14%;
+    width: 57vw;
+}
+}
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){/*iphone*/
+.title1{
+    margin-left: -194%;
+}
+.cart{
+    position: absolute;
+    margin-left: 75%;
+    font-size: 4rem;
+}
+.cartcount {
+    margin-left: 34%;
+    position: absolute;
+    font-size: 25px;
+    margin-top: 27.5%;
+}
+.Jumbo{
+    height: 53vh;
+}
+.imagerow{
+    background-image: none;
+}
+.card{
+    margin-right: 7%;
+}
+.foot{
+    font-size: 11px;
+}
+.textcolor{
+    margin-left: 10%;
+}
+.plusMinusButton {
+    width: 132%;
+}
+.delete {
+    margin-left: 174%;
+}
+.checkoutBtn {
+    margin-left: 50%;
+    margin-top: -15%;
+}
+.checkoutTextColor {
+    margin-left: 5%;
+    width: 80vw;
+}
+.checkout {
+    border-radius: 1%;
+    width: 61vw;
+    margin-left: 20%;
+    margin-bottom: 33%;
+}
 }

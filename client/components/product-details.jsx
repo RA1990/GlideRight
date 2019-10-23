@@ -49,7 +49,7 @@ class ProductDetails extends React.Component {
       return (
         <div className="container">
           <div className="card p-5" key={firstProduct.id}>
-            <div><button onClick={() => this.props.onClick('catalog', {})}>
+            <div><button className="btn btn-primary" onClick={() => this.props.onClick('catalog', {})}>
               {'<'}  Back to Catalog
             </button></div>
 
@@ -74,7 +74,6 @@ class ProductDetails extends React.Component {
                 <br/>
                 <button className="addCart" onClick={() => this.props.cartItem(this.state.product, this.state.cartQuantity) } >Add to Cart</button>
               </div>
-
             </div>
             <p className="card-text mt-4">{firstProduct.longDescription}</p>
           </div>
