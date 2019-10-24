@@ -46,7 +46,9 @@ export default class CheckoutForm extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
   }
 
   getCartTotal() {
@@ -90,39 +92,39 @@ export default class CheckoutForm extends React.Component {
             </div>
           </div>
         </div>
-        <h1 className="textcolor">Checkout</h1>
-        <p className="textcolor">Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
+        <div className="container checkoutTextColor">
+          <h1 className="checkoutTextColor">Checkout</h1>
+          <p className="checkoutTextColor">Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
+          <form className="checkoutTextColor" onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label >Name</label>
+              <input onKeyDown={this.handleSubmit} type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className="form-control" id="exampleFormControlInput1" placeholder="enter name" />
+            </div>
 
-        <form className="textcolor" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label >Name</label>
-            <input type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className="form-control" id="exampleFormControlInput1" placeholder="enter name" />
-          </div>
+            <div className="form-group">
+              <label>Credit Card</label>
+              <input onKeyDown={this.handleSubmit} type="text" pattern="^\d{10}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className="form-control" id="exampleFormControlInput1" placeholder="enter credit card 10 digits no space" />
+            </div>
 
-          <div className="form-group">
-            <label>Credit Card</label>
-            <input type="text" pattern="^\d{10}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className="form-control" id="exampleFormControlInput1" placeholder="enter credit card 10 digits no space" />
-          </div>
+            <div className="form-group">
+              <label>Shipping Address</label>
+              <textarea onKeyDown={this.handleSubmit} value={this.state.shippingAddressInfo} onChange={this.handleShippingAddressInfo} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
 
-          <div className="form-group">
-            <label>Shipping Address</label>
-            <textarea value={this.state.shippingAddressInfo} onChange={this.handleShippingAddressInfo} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-
-          <div className="container">
-            <div className="row">
-              <div className="col">
-                <button className="btn btn-link mt-4" onClick={() => this.props.setView('catalog', {})}>
-                  {'<'}  continue shopping
-                </button>
-              </div>
-              <div className="col">
-                <button onClick={this.handleOrder} type="button" className="btn placeOrder btn-primary">Place Order</button>
+            <div className="container">
+              <div className="row">
+                <div className="col">
+                  <button className="btn btn-link mt-4" onClick={() => this.props.setView('catalog', {})}>
+                    {'<'}  continue shopping
+                  </button>
+                </div>
+                <div className="col">
+                  <button onClick={this.handleOrder} type="button" className="btn placeOrder btn-primary">Place Order</button>
+                </div>
               </div>
             </div>
-          </div>
-
-        </form>
+          </form>
+        </div>
       </>
 
     );

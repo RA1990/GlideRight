@@ -29,6 +29,7 @@ function CartSummary(props) {
     return (
       <CartSummaryItem key={index}
         id={item.id}
+        setView={props.setView}
         addToCart={props.addToCart}
         count={item.count}
         image={item.image}
@@ -52,7 +53,7 @@ function CartSummary(props) {
       <p className="itemTotal">
         Item Total ${(total / 100).toFixed(2)}
       </p>
-      <div className="col-md-4 checkouButton"> <button onClick={() => { props.setView('checkout', {}); }} type="button" className="btn  btn-primary" >Checkout</button>
+      <div className="col-md-4 checkouButton"> <button onClick={() => { props.setView('checkout', {}); }} type="button" className="checkoutBtn btn  btn-primary" >Checkout</button>
       </div>
     </div>
   );
