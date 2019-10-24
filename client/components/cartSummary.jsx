@@ -29,6 +29,7 @@ function CartSummary(props) {
     return (
       <CartSummaryItem key={index}
         id={item.id}
+        setView={props.setView}
         addToCart={props.addToCart}
         count={item.count}
         image={item.image}

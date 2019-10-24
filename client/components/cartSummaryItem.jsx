@@ -19,8 +19,9 @@ class CartSummaryItem extends React.Component {
     this.getProduct = this.getProduct.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
+
   getProduct() {
-    const currentparam = this.props.id;
+    let currentparam = this.props.id;
     (fetch('/api/products.php?id=' + currentparam)
       .then(res => res.json())
       .then(res => res[0])
@@ -37,19 +38,28 @@ class CartSummaryItem extends React.Component {
 
   componentDidMount(props) {
     this.getProduct();
-
   }
-  deleteItem() {
+
+  deleteItem(event) {
+    event.preventDefault();
+    let newcart = null;
     const currentparam = this.props.id;
     fetch(`/api/deleteitem.php?id=` + currentparam)
-      .then(res => window.location.href = '');
-
+      .then(res => res.json())
+      .then(res => {
+        newcart = res;
+        newcart.splice(0, 1);
+      })
+      .then(response => this.setState({ product: newcart }))
+      .then(res => window.location.reload());
   }
+
   getCartItems() {
     fetch(`/api/cart.php`)
       .then(res => res.json())
       .then(response => this.setState({ product: response }));
   }
+
   subFromCart(product, id) {
     if (this.state.cartTotalQuantity <= 1) {
       return undefined;
@@ -57,6 +67,7 @@ class CartSummaryItem extends React.Component {
       this.props.addToCart(product, id);
     }
   }
+
   addCart(product, id) {
     if (this.state.cartTotalQuantity > 9) {
       return undefined;
@@ -64,6 +75,7 @@ class CartSummaryItem extends React.Component {
       this.props.addToCart(product, id);
     }
   }
+
   plusQuantityOfProduct() {
     const addcart = () => { this.addCart(this.state.product, 1); };
     addcart();
@@ -74,6 +86,7 @@ class CartSummaryItem extends React.Component {
     this.setState({ price: parseInt(this.state.originalPrice) * parseInt(this.state.cartTotalQuantity) });
     this.getProduct();
   }
+
   subQuantityOfProduct() {
     const addcart = () => this.subFromCart(this.state.product, 99);
     addcart();
@@ -84,6 +97,7 @@ class CartSummaryItem extends React.Component {
     this.setState({ price: parseInt(this.state.originalPrice) * parseInt(this.state.cartTotalQuantity) });
     this.getProduct();
   }
+
   render() {
 
     return (
@@ -107,7 +121,7 @@ class CartSummaryItem extends React.Component {
                 </button>
               </span>
             </div>
-            <button onClick={this.deleteItem} type="button" className="delete btn btn-danger" >Delete</button>
+            <button onClick={() => this.deleteItem(event)} type="button" className="delete btn btn-danger" >Delete</button>
             <p className="card-text badge badge-primary">{(this.state.originalPrice * this.state.cartTotalQuantity / 100).toFixed(2)}</p>
             <p className="card-text">{this.props.shortDescription}</p>
           </div>
