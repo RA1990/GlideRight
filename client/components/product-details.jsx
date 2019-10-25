@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from './carouesel';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -54,7 +55,8 @@ class ProductDetails extends React.Component {
             </button></div>
 
             <div className="row">
-              <div className="col-12 col-md-8"><img className="prodet"src={firstProduct.image} /></div>
+              {/* <div className="col-12 col-md-8"><img className="prodet"src={firstProduct.image} /></div> */}
+              <Carousel/>
               <div className="col-6 col-md-4"><h5>{firstProduct.name}</h5>
                 <div className="input-group">
                   <span className="input-group-btn">
