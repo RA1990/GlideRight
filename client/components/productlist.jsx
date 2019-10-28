@@ -4,6 +4,7 @@ import ProductListItem from './productlistitem';
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
+    console.log('productlist', this.props);
     this.state = {
       products: []
     };
@@ -24,6 +25,7 @@ class ProductList extends React.Component {
       return (
 
         <ProductListItem key={singleProductData.id}
+          addTocart={this.props.cartItem}
           id={singleProductData.id}
           onClick={this.props.onClick}
           name={singleProductData.name}
