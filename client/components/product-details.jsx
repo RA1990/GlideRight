@@ -1,10 +1,8 @@
 import React from 'react';
-import Carousel from './carouesel';
 
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
       product: [],
       cartQuantity: 1,
@@ -57,7 +55,6 @@ class ProductDetails extends React.Component {
 
             <div className="row">
               <div className="col-12 col-md-8 p2"><img className="prodet"src={firstProduct.image} /></div>
-              {/* <Carousel/> */}
               <div className="col-6 col-md-4"><h5 className="productName">{firstProduct.name}</h5>
                 <div className="input-group inputWidth">
                   <span className="input-group-btn">
