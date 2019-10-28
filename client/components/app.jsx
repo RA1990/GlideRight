@@ -6,7 +6,6 @@ import CartSummary from './cartSummary';
 import CheckoutForm from './checkoutForm';
 import Jumbo from './jumbotron';
 import Footer from './footer';
-import Carousel from './carouesel';
 
 export default class App extends React.Component {
   constructor(props) {
