@@ -6,6 +6,7 @@ import CartSummary from './cartSummary';
 import CheckoutForm from './checkoutForm';
 import Jumbo from './jumbotron';
 import Footer from './footer';
+import Carousel from './carouesel';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -103,7 +104,7 @@ export default class App extends React.Component {
         <React.Fragment>
           <Header cartItemCount={this.state.cart} setView={this.setView}/>
           <Jumbo/>
-          <ProductList onClick={this.setView}/>
+          <ProductList onClick={this.setView} cartItem={this.addToCart}/>
           <Footer/>
         </React.Fragment>
       );
@@ -111,7 +112,6 @@ export default class App extends React.Component {
     if (this.state.view.name === 'details') {
       return (
         <React.Fragment>
-          <Header cartItemCount={this.state.cart} setView={this.setView}/>
           <ProductDetails onClick={this.setView} params={this.state.view.params} cartItem={this.addToCart}/>
         </React.Fragment>
       );

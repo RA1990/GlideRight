@@ -5,6 +5,9 @@ export default class CheckoutForm extends React.Component {
     super(props);
     this.state = {
       modal: 'show',
+      text1: 'text-secondary',
+      text2: 'text-secondary',
+      text3: 'text-secondary',
       placeOrder: false,
       'customerName': '',
       'creditCardInfo': '',
@@ -22,27 +25,48 @@ export default class CheckoutForm extends React.Component {
     this.setState({ modal: 'hide' });
   }
   handleOrder() {
-    let name = this.state.customerName;
-    let credit = this.state.creditCardInfo;
-    if (!name.match(/^([a-zA-Z\-'\s]+)$/)) {
-      return undefined;
+    if (this.state.text1 === 'text-danger' || this.state.text2 === 'text-danger') {
+      return;
     }
-    if (!credit.match(/^(^\d{10}$)$/)) {
-      return undefined;
+    if (this.state.text1 === 'text-secondary' || this.state.text2 === 'text-secondary') {
+      return;
     }
+    if (this.state.text3 === 'text-secondary' || this.state.text3 === 'text-danger') {
+      return;
+    }
+
     this.setState({ placeOrder: true });
   }
 
   handleNameChange(event) {
     this.setState({ customerName: event.target.value });
+    let name = this.state.customerName;
+    if (!name.match(/^([a-zA-Z\-'\s]+)$/)) {
+      this.setState({ text1: 'text-danger' });
+    } else {
+      this.setState({ text1: 'text-success' });
+    }
+
   }
 
   handleCreditCardChange(event) {
     this.setState({ creditCardInfo: event.target.value });
+    let credit = this.state.creditCardInfo;
+    if (!credit.match(/^(^\d{13}$)$/)) {
+      this.setState({ text2: 'text-danger' });
+    } else {
+      this.setState({ text2: 'text-success' });
+    }
   }
 
   handleShippingAddressInfo(event) {
     this.setState({ shippingAddressInfo: event.target.value });
+    let address = this.state.shippingAddressInfo;
+    if (!address.match(/^(^\s*\S+(?:\s+\S+){2}\s*\S+\s*\S+\s*\S+$)$/)) {
+      this.setState({ text3: 'text-danger' });
+    } else {
+      this.setState({ text3: 'text-success' });
+    }
   }
 
   handleSubmit(event) {
@@ -64,8 +88,8 @@ export default class CheckoutForm extends React.Component {
     if (this.state.placeOrder === true) {
       return (
       <>
-        <div className="container">
-          <button className="btn btn-link mt-4" onClick={() => this.props.setView('catalog', {})}>
+        <div className="container mt">
+          <button className="btn btn-link  mt-4" onClick={() => this.props.setView('catalog', {})}>
             {'<'}  Back to Catalog
           </button>
         </div>;
@@ -92,38 +116,40 @@ export default class CheckoutForm extends React.Component {
             </div>
           </div>
         </div>
-        <div className="container checkoutTextColor">
-          <h1 className="checkoutTextColor">Checkout</h1>
-          <p className="checkoutTextColor">Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
-          <form className="checkoutTextColor" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label >Name</label>
-              <input onKeyDown={this.handleSubmit} type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className="form-control" id="exampleFormControlInput1" placeholder="enter name" />
-            </div>
+        <div className="checkoutContainer">
+          <div className="container checkoutTextColor">
+            <h1 className="checkoutTextColor">Checkout</h1>
+            <p className="checkoutTextColor">Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
+            <form className="checkoutTextColor" onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <label >Name</label>
+                <input onKeyDown={this.handleSubmit} type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className={'fs form-control ' + this.state.text1} id="exampleFormControlInput1" placeholder="enter name" required/>
+              </div>
 
-            <div className="form-group">
-              <label>Credit Card</label>
-              <input onKeyDown={this.handleSubmit} type="text" pattern="^\d{10}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className="form-control" id="exampleFormControlInput1" placeholder="enter credit card 10 digits no space" />
-            </div>
+              <div className="form-group">
+                <label>Credit Card</label>
+                <input onKeyDown={this.handleSubmit} type="text" pattern="^\d{13}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className={'fs form-control ' + this.state.text2} id="exampleFormControlInput1" placeholder="enter credit card 13 digits no space" required/>
+              </div>
 
-            <div className="form-group">
-              <label>Shipping Address</label>
-              <textarea onKeyDown={this.handleSubmit} value={this.state.shippingAddressInfo} onChange={this.handleShippingAddressInfo} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
+              <div className="form-group">
+                <label>Shipping Address</label>
+                <textarea onKeyDown={this.handleSubmit} pattern="^\s*\S+(?:\s+\S+){2}\s*\S+\s*\S+\s*\S+$" value={this.state.shippingAddressInfo} onChange={this.handleShippingAddressInfo} className={'fs form-control ' + this.state.text3} id="exampleFormControlTextarea1" placeholder="27461 San Bernardino Redlands, CA 92374" rows="3"></textarea>
+              </div>
 
-            <div className="container">
-              <div className="row">
-                <div className="col">
-                  <button className="btn btn-link mt-4" onClick={() => this.props.setView('catalog', {})}>
-                    {'<'}  continue shopping
-                  </button>
-                </div>
-                <div className="col">
-                  <button onClick={this.handleOrder} type="button" className="btn placeOrder btn-primary">Place Order</button>
+              <div className="container">
+                <div className="row">
+                  <div className="col">
+                    <button className="btn btn-link mt-4" onClick={() => this.props.setView('catalog', {})}>
+                      {'<'}  continue shopping
+                    </button>
+                  </div>
+                  <div className="col">
+                    <button onClick={this.handleOrder} type="button" className="btn placeOrder btn-primary">Place Order</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </>
 
