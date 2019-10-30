@@ -32,11 +32,7 @@ export default class CheckoutForm extends React.Component {
     this.setState({ modal: 'hide' });
   }
   handleOrder() {
-    // for( var key in this.state.inputClass){
-    //   if (this.state.inputClass[key] === 'text-danger' || this.state.inputClass[key] === 'text-secondary'){
-    //     return;
-    //   }
-    // }
+
     if (this.state.text1 === 'text-danger' || this.state.text2 === 'text-danger') {
       return;
     }
@@ -48,19 +44,6 @@ export default class CheckoutForm extends React.Component {
     }
 
     this.setState({ placeOrder: true });
-  }
-  // way to handle multiple inputs in the same function
-  handleInputChange(event) {
-    const input = event.target; // get the element that triggered the event
-    const value = input.value; // gete the value from the element that triggered it
-    const inputName = input.getAttribute('name'); // get the name from the element
-    const newState = { ...this.state }; // copy the state so we can modify the copy
-    const currentTest = this.regexTexts[inputName]; // check our tests, get the test for this one element
-    if (value.match(currentTest)) { // test the element
-      // currentTest.test(value)  also works, returns true or false
-      newState[inputName] = value; // set the new value into the named property of the state
-      this.setState(newState); // update the state
-    }
   }
 
   handleNameChange(event) {
