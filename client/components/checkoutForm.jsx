@@ -3,6 +3,13 @@ import React from 'react';
 export default class CheckoutForm extends React.Component {
   constructor(props) {
     super(props);
+    this.modal = this.modal.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
+    this.handleShippingAddressInfo = this.handleShippingAddressInfo.bind(this);
+    this.getCartTotal = this.getCartTotal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOrder = this.handleOrder.bind(this);
     this.state = {
       modal: 'show',
       text1: 'text-secondary',
@@ -13,18 +20,19 @@ export default class CheckoutForm extends React.Component {
       'creditCardInfo': '',
       'shippingAddressInfo': ''
     };
-    this.modal = this.modal.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
-    this.handleShippingAddressInfo = this.handleShippingAddressInfo.bind(this);
-    this.getCartTotal = this.getCartTotal.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleOrder = this.handleOrder.bind(this);
+  }
+  componentDidMount() {
+    window.scroll({
+      top: 0,
+      left: 100,
+      behavior: 'smooth'
+    });
   }
   modal() {
     this.setState({ modal: 'hide' });
   }
   handleOrder() {
+
     if (this.state.text1 === 'text-danger' || this.state.text2 === 'text-danger') {
       return;
     }
@@ -123,12 +131,12 @@ export default class CheckoutForm extends React.Component {
             <form className="checkoutTextColor" onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label >Name</label>
-                <input onKeyDown={this.handleSubmit} type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className={'fs form-control ' + this.state.text1} id="exampleFormControlInput1" placeholder="enter name" required/>
+                <input onKeyDown={this.handleSubmit} name="customerName" type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className={'fs form-control ' + this.state.text1} id="exampleFormControlInput1" placeholder="enter name" required/>
               </div>
 
               <div className="form-group">
                 <label>Credit Card</label>
-                <input onKeyDown={this.handleSubmit} type="text" pattern="^\d{13}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className={'fs form-control ' + this.state.text2} id="exampleFormControlInput1" placeholder="enter credit card 13 digits no space" required/>
+                <input onKeyDown={this.handleSubmit} name="creditCardInfo" type="text" pattern="^\d{13}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className={'fs form-control ' + this.state.text2} id="exampleFormControlInput1" placeholder="enter credit card 13 digits no space" required/>
               </div>
 
               <div className="form-group">
@@ -140,7 +148,7 @@ export default class CheckoutForm extends React.Component {
                 <div className="row">
                   <div className="col">
                     <button className="btn btn-link mt-4" onClick={() => this.props.setView('catalog', {})}>
-                      {'<'}  continue shopping
+                      &#60; continue shopping
                     </button>
                   </div>
                   <div className="col">

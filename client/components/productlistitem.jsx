@@ -4,12 +4,9 @@ import ProductDetails from './product-details';
 export default class ProductListItem extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
       modal: 'hide'
     };
-    // const name = 'details';
-    // const params = { id: props.id };
     this.modal = this.modal.bind(this);
     this.modalClose = this.modalClose.bind(this);
   }
