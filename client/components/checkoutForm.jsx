@@ -3,6 +3,13 @@ import React from 'react';
 export default class CheckoutForm extends React.Component {
   constructor(props) {
     super(props);
+    this.modal = this.modal.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
+    this.handleShippingAddressInfo = this.handleShippingAddressInfo.bind(this);
+    this.getCartTotal = this.getCartTotal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleOrder = this.handleOrder.bind(this);
     this.state = {
       modal: 'show',
       text1: 'text-secondary',
@@ -13,18 +20,23 @@ export default class CheckoutForm extends React.Component {
       'creditCardInfo': '',
       'shippingAddressInfo': ''
     };
-    this.modal = this.modal.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
-    this.handleShippingAddressInfo = this.handleShippingAddressInfo.bind(this);
-    this.getCartTotal = this.getCartTotal.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleOrder = this.handleOrder.bind(this);
+  }
+  componentDidMount() {
+    window.scroll({
+      top: 0,
+      left: 100,
+      behavior: 'smooth'
+    });
   }
   modal() {
     this.setState({ modal: 'hide' });
   }
   handleOrder() {
+    // for( var key in this.state.inputClass){
+    //   if (this.state.inputClass[key] === 'text-danger' || this.state.inputClass[key] === 'text-secondary'){
+    //     return;
+    //   }
+    // }
     if (this.state.text1 === 'text-danger' || this.state.text2 === 'text-danger') {
       return;
     }
@@ -36,6 +48,19 @@ export default class CheckoutForm extends React.Component {
     }
 
     this.setState({ placeOrder: true });
+  }
+  // way to handle multiple inputs in the same function
+  handleInputChange(event) {
+    const input = event.target; // get the element that triggered the event
+    const value = input.value; // gete the value from the element that triggered it
+    const inputName = input.getAttribute('name'); // get the name from the element
+    const newState = { ...this.state }; // copy the state so we can modify the copy
+    const currentTest = this.regexTexts[inputName]; // check our tests, get the test for this one element
+    if (value.match(currentTest)) { // test the element
+      // currentTest.test(value)  also works, returns true or false
+      newState[inputName] = value; // set the new value into the named property of the state
+      this.setState(newState); // update the state
+    }
   }
 
   handleNameChange(event) {
@@ -123,12 +148,12 @@ export default class CheckoutForm extends React.Component {
             <form className="checkoutTextColor" onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label >Name</label>
-                <input onKeyDown={this.handleSubmit} type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className={'fs form-control ' + this.state.text1} id="exampleFormControlInput1" placeholder="enter name" required/>
+                <input onKeyDown={this.handleSubmit} name="customerName" type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className={'fs form-control ' + this.state.text1} id="exampleFormControlInput1" placeholder="enter name" required/>
               </div>
 
               <div className="form-group">
                 <label>Credit Card</label>
-                <input onKeyDown={this.handleSubmit} type="text" pattern="^\d{13}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className={'fs form-control ' + this.state.text2} id="exampleFormControlInput1" placeholder="enter credit card 13 digits no space" required/>
+                <input onKeyDown={this.handleSubmit} name="creditCardInfo" type="text" pattern="^\d{13}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className={'fs form-control ' + this.state.text2} id="exampleFormControlInput1" placeholder="enter credit card 13 digits no space" required/>
               </div>
 
               <div className="form-group">
@@ -140,7 +165,7 @@ export default class CheckoutForm extends React.Component {
                 <div className="row">
                   <div className="col">
                     <button className="btn btn-link mt-4" onClick={() => this.props.setView('catalog', {})}>
-                      {'<'}  continue shopping
+                      &#60; continue shopping
                     </button>
                   </div>
                   <div className="col">

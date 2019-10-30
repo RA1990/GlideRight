@@ -82,8 +82,10 @@ class CartSummaryItem extends React.Component {
     if (this.state.cartTotalQuantity > 9) {
       return;
     }
-    this.setState({ cartTotalQuantity: this.state.cartTotalQuantity + 1 });
-    this.setState({ price: parseInt(this.state.originalPrice) * parseInt(this.state.cartTotalQuantity) });
+    this.setState({
+      cartTotalQuantity: this.state.cartTotalQuantity + 1,
+      price: parseInt(this.state.originalPrice) * parseInt(this.state.cartTotalQuantity)
+    });
     this.getProduct();
   }
 
@@ -93,8 +95,10 @@ class CartSummaryItem extends React.Component {
     if (this.state.cartTotalQuantity <= 1) {
       return;
     }
-    this.setState({ cartTotalQuantity: this.state.cartTotalQuantity - 1 });
-    this.setState({ price: parseInt(this.state.originalPrice) * parseInt(this.state.cartTotalQuantity) });
+    this.setState({
+      cartTotalQuantity: this.state.cartTotalQuantity - 1,
+      price: parseInt(this.state.originalPrice) * parseInt(this.state.cartTotalQuantity)
+    });
     this.getProduct();
   }
 
