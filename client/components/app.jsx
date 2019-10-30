@@ -10,6 +10,10 @@ import Footer from './footer';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+    this.setView = this.setView.bind(this);
+    this.addToCart = this.addToCart.bind(this);
+    this.getCartItems = this.getCartItems.bind(this);
+    this.addToCart = this.addToCart.bind(this);
     this.state = {
       cart: [],
       view: {
@@ -17,10 +21,7 @@ export default class App extends React.Component {
         params: {}
       }
     };
-    this.setView = this.setView.bind(this);
-    this.addToCart = this.addToCart.bind(this);
-    this.getCartItems = this.getCartItems.bind(this);
-    this.addToCart = this.addToCart.bind(this);
+
   }
   componentDidMount() {
     this.getCartItems();

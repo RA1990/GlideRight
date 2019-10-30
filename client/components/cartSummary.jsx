@@ -13,9 +13,9 @@ function CartSummary(props) {
   if (props.cart.length === 0) {
     return (
       <>
-    <div className="container">
+    <div className="container mt">
       <button className="btn btn-link mt-4" onClick={() => props.setView('catalog', {})}>
-        {'<'}  Back to Catalog
+        &lt;  Back to Catalog
       </button>
     </div>;
     <div>
@@ -46,7 +46,7 @@ function CartSummary(props) {
       <h1 className="myCartTitle mt-3 mb-5 ml-2">My Cart</h1>
       <div className="cardSpaceItem">
         <button className="btn btn-link btn-warning text-light" onClick={() => props.setView('catalog', {})}>
-          {'<'}  Back to Catalog
+          &#60;  Back to Catalog
         </button>
         {items}
       </div>

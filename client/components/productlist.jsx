@@ -4,7 +4,6 @@ import ProductListItem from './productlistitem';
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
-    console.log('productlist', this.props);
     this.state = {
       products: []
     };

@@ -30,17 +30,20 @@ class ProductDetails extends React.Component {
     if (this.state.cartQuantity < 1 || this.state.cartQuantity === 10) {
       return undefined;
     } else {
-      this.setState({ cartQuantity: this.state.cartQuantity += 1 });
-      const newPrice = parseInt(this.state.originalPrice) * parseInt(this.state.cartQuantity);
-      this.setState({ price: newPrice });
+      this.setState({
+        cartQuantity: this.state.cartQuantity += 1,
+        price: parseInt(this.state.originalPrice) * parseInt(this.state.cartQuantity)
+      });
     }
   }
   minusQuantityOfProduct() {
     if (this.state.cartQuantity <= 1) {
       return undefined;
     }
-    this.setState({ cartQuantity: this.state.cartQuantity -= 1 });
-    this.setState({ price: parseInt(this.state.product.price) * parseInt(this.state.cartQuantity) });
+    this.setState({
+      cartQuantity: this.state.cartQuantity -= 1,
+      price: parseInt(this.state.product.price) * parseInt(this.state.cartQuantity)
+    });
   }
 
   render() {
@@ -50,7 +53,7 @@ class ProductDetails extends React.Component {
         <div className="container mod">
           <div className="card p-5" key={firstProduct.id}>
             <div><button className="btn btn-primary btc" onClick={() => this.props.click()}>
-              {'<'}  Back to Catalog
+              &#60;  Back to Catalog
             </button></div>
 
             <div className="row">
