@@ -24,7 +24,7 @@ export default class App extends React.Component {
 
   }
   componentDidMount() {
-    this.getCartItems();
+    this.getCartItems('catalog');
   }
 
   setView(name, params) {
@@ -36,13 +36,20 @@ export default class App extends React.Component {
     });
   }
 
-  getCartItems() {
+  getCartItems(requestedView) {
     fetch(`/api/cart.php`)
       .then(res => res.json())
-      .then(response => this.setState({ cart: response }));
+      .then(response => {
+        const newView = { ...this.state.view };
+        newView.name = requestedView;
+        this.setState({
+          cart: response,
+          view: newView
+        });
+      });
   }
 
-  addToCart(product, count) {
+  addToCart(product, count, nextView = 'catalog') {
     const addToCart = [];
     const req = {
       method: 'POST',
@@ -52,9 +59,13 @@ export default class App extends React.Component {
         count: count
       })
     };
-    addToCart.push(fetch(`/api/cart.php`, req)
-      .then(req => req.json()));
-    Promise.allSettled(addToCart).then(this.getCartItems);
+    fetch(`/api/cart.php`, req)
+      .then(req => {
+        this.getCartItems(nextView);
+      })
+      .catch((...data) => {
+        // there was an error with request
+      });
   }
 
   placeOrder(userOrderInfo) {
@@ -75,8 +86,11 @@ export default class App extends React.Component {
     fetch('/api/orders.php', req)
       .then(res => res.json())
       .then(orderItem => {
-        this.setState({ cart: [] });
-        this.setState({ name: 'catalog', params: {} });
+        this.setState({
+          cart: [],
+          name: 'catalog',
+          params: {}
+        });
       });
   }
 
@@ -94,7 +108,7 @@ export default class App extends React.Component {
       return (
         <React.Fragment>
           <Header cartItemCount={this.state.cart} setView={this.setView} />
-          <CartSummary cart={this.state.cart} addToCart={this.addToCart} setView={this.setView}/>
+          <CartSummary cartUpdatedCallback={this.getCartItems} cart={this.state.cart} addToCart={this.addToCart} setView={this.setView}/>
           <Footer />
         </React.Fragment>
       );

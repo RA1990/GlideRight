@@ -31,6 +31,7 @@ function CartSummary(props) {
         id={item.id}
         setView={props.setView}
         addToCart={props.addToCart}
+        cartUpdatedCallback={props.cartUpdatedCallback}
         count={item.count}
         image={item.image}
         name={item.name}

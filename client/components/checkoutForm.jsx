@@ -4,21 +4,39 @@ export default class CheckoutForm extends React.Component {
   constructor(props) {
     super(props);
     this.modal = this.modal.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
-    this.handleShippingAddressInfo = this.handleShippingAddressInfo.bind(this);
     this.getCartTotal = this.getCartTotal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOrder = this.handleOrder.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.state = {
       modal: 'show',
-      text1: 'text-secondary',
-      text2: 'text-secondary',
-      text3: 'text-secondary',
-      placeOrder: false,
-      'customerName': '',
-      'creditCardInfo': '',
-      'shippingAddressInfo': ''
+      inputs: {
+        customerName: {
+          placeholder: 'enter name',
+          regex: /^[a-zA-Z\-'\s]+$/,
+          error: 'name must be a letter and longer than 2 characters',
+          displayedError: '',
+          value: '',
+          displayClass: 'text-secondary'
+        },
+        creditCardInfo: {
+          placeholder: 'enter credit card 13 digits no space',
+          regex: /^[0-9]{1,13}$/,
+          error: 'number must be 13 digits no spaces',
+          displayedError: '',
+          value: '',
+          displayClass: 'text-secondary'
+        },
+        shippingInfo: {
+          placeholder: 'Your address, aka: 123 Any St, CA 90210',
+          regex: /^[0-9]{1,5} +[a-zA-Z0-9 -]{1,},? +[A-Z]{2} +[0-9]{5}$/,
+          error: 'invaild address',
+          displayedError: '',
+          value: '',
+          displayClass: 'text-secondary'
+        }
+      },
+      placeOrder: false
     };
   }
   componentDidMount() {
@@ -32,49 +50,31 @@ export default class CheckoutForm extends React.Component {
     this.setState({ modal: 'hide' });
   }
   handleOrder() {
-
-    if (this.state.text1 === 'text-danger' || this.state.text2 === 'text-danger') {
-      return;
-    }
-    if (this.state.text1 === 'text-secondary' || this.state.text2 === 'text-secondary') {
-      return;
-    }
-    if (this.state.text3 === 'text-secondary' || this.state.text3 === 'text-danger') {
-      return;
-    }
-
-    this.setState({ placeOrder: true });
-  }
-
-  handleNameChange(event) {
-    this.setState({ customerName: event.target.value });
-    let name = this.state.customerName;
-    if (!name.match(/^([a-zA-Z\-'\s]+)$/)) {
-      this.setState({ text1: 'text-danger' });
-    } else {
-      this.setState({ text1: 'text-success' });
+    for (let inputKey in this.state.inputs) {
+      if (this.state.inputs[inputKey].displayClass === 'text-danger' || this.state.inputs[inputKey].displayClass === 'text-secondary') {
+        return undefined;
+      } else {
+        this.setState({ placeOrder: true });
+      }
     }
 
   }
 
-  handleCreditCardChange(event) {
-    this.setState({ creditCardInfo: event.target.value });
-    let credit = this.state.creditCardInfo;
-    if (!credit.match(/^(^\d{13}$)$/)) {
-      this.setState({ text2: 'text-danger' });
+  handleInputChange(event) {
+    const input = event.target;
+    const value = input.value;
+    const inputName = input.getAttribute('name');
+    const newState = { ...this.state };
+    const currentTest = newState.inputs[inputName].regex;
+    if (currentTest.test(value)) {
+      newState.inputs[inputName].displayClass = 'text-success';
+      newState.inputs[inputName].displayedError = '';
     } else {
-      this.setState({ text2: 'text-success' });
+      newState.inputs[inputName].displayClass = 'text-danger';
+      newState.inputs[inputName].displayedError = newState.inputs[inputName].error;
     }
-  }
-
-  handleShippingAddressInfo(event) {
-    this.setState({ shippingAddressInfo: event.target.value });
-    let address = this.state.shippingAddressInfo;
-    if (!address.match(/^(^\s*\S+(?:\s+\S+){2}\s*\S+\s*\S+\s*\S+$)$/)) {
-      this.setState({ text3: 'text-danger' });
-    } else {
-      this.setState({ text3: 'text-success' });
-    }
+    newState.inputs[inputName].value = value;
+    this.setState(newState);
   }
 
   handleSubmit(event) {
@@ -98,7 +98,7 @@ export default class CheckoutForm extends React.Component {
       <>
         <div className="container mt">
           <button className="btn btn-link  mt-4" onClick={() => this.props.setView('catalog', {})}>
-            {'<'}  Back to Catalog
+            &#60;  Back to Catalog
           </button>
         </div>;
     <div className=" mt-5 d-block p-2 bg-dark text-white text-center checkout">
@@ -109,7 +109,7 @@ export default class CheckoutForm extends React.Component {
       </>
       );
     }
-
+    const input = this.state.inputs;
     return (
       <>
         <div className="modal" id={this.state.modal} role="dialog">
@@ -131,17 +131,20 @@ export default class CheckoutForm extends React.Component {
             <form className="checkoutTextColor" onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label >Name</label>
-                <input onKeyDown={this.handleSubmit} name="customerName" type="text" pattern="[a-zA-Z\-'\s]+" value={this.state.customerName} onChange={this.handleNameChange} className={'fs form-control ' + this.state.text1} id="exampleFormControlInput1" placeholder="enter name" required/>
+                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="customerName" type="text" pattern="[a-zA-Z\-'\s]+" value={input.customerName.value} className={'fs form-control ' + input.customerName.displayClass} placeholder="enter name" required/>
+                <div className="inputError">{input.customerName.displayedError}</div>
               </div>
 
               <div className="form-group">
                 <label>Credit Card</label>
-                <input onKeyDown={this.handleSubmit} name="creditCardInfo" type="text" pattern="^\d{13}$" value={this.state.creditCardInfo} onChange={this.handleCreditCardChange} className={'fs form-control ' + this.state.text2} id="exampleFormControlInput1" placeholder="enter credit card 13 digits no space" required/>
+                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="creditCardInfo" type="text" pattern="^\d{13}$" value={input.creditCardInfo.value} className={'fs form-control ' + input.creditCardInfo.displayClass} placeholder="enter credit card 13 digits no space" required/>
+                <div className="inputError">{input.creditCardInfo.displayedError}</div>
               </div>
 
               <div className="form-group">
                 <label>Shipping Address</label>
-                <textarea onKeyDown={this.handleSubmit} pattern="^\s*\S+(?:\s+\S+){2}\s*\S+\s*\S+\s*\S+$" value={this.state.shippingAddressInfo} onChange={this.handleShippingAddressInfo} className={'fs form-control ' + this.state.text3} id="exampleFormControlTextarea1" placeholder="27461 San Bernardino Redlands, CA 92374" rows="3"></textarea>
+                <textarea onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="shippingInfo" pattern="^\s*\S+(?:\s+\S+){2}\s*\S+\s*\S+\s*\S+$" value={input.shippingInfo.value} className={'fs form-control ' + input.shippingInfo.displayClass} placeholder={input.shippingInfo.placeholder} rows="3"></textarea>
+                <div className="inputError">{input.shippingInfo.displayedError}</div>
               </div>
 
               <div className="container">
