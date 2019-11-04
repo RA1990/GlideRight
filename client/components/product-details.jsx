@@ -4,7 +4,7 @@ class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: [],
+      product: {},
       cartQuantity: 1,
       price: 0,
       originalPrice: 0
@@ -18,12 +18,12 @@ class ProductDetails extends React.Component {
     fetch('/api/products.php?id=' + currentparam)
       .then(res => res.json())
       .then(res => res[0])
-      .then(res => this.setState({ product: res }))
       .then(res => {
-        this.setState({ price: this.state.product.price });
-      })
-      .then(res => {
-        this.setState({ originalPrice: this.state.product.price });
+        this.setState({
+          product: res,
+          price: res.price,
+          originalPrice: res.price
+        });
       });
   }
   addQuantityOfProduct() {
