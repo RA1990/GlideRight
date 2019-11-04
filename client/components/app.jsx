@@ -50,7 +50,6 @@ export default class App extends React.Component {
   }
 
   addToCart(product, count, nextView = 'catalog') {
-    debugger;
     const addToCart = [];
     const req = {
       method: 'POST',
