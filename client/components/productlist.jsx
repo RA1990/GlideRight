@@ -22,23 +22,23 @@ class ProductList extends React.Component {
   render() {
     const products = this.state.products.map(singleProductData => {
       return (
-        <div className="col-md-4" key={singleProductData.id}>
-          <ProductListItem
-            id={singleProductData.id}
-            onClick={this.props.onClick}
-            name={singleProductData.name}
-            price={singleProductData.price}
-            image={singleProductData.image}
-            shortDescription={singleProductData.shortDescription}
-          />
-        </div>
+
+        <ProductListItem key={singleProductData.id}
+          addTocart={this.props.cartItem}
+          id={singleProductData.id}
+          onClick={this.props.onClick}
+          name={singleProductData.name}
+          price={singleProductData.price}
+          image={singleProductData.image}
+          shortDescription={singleProductData.shortDescription}
+        />
 
       );
 
     });
 
     return (
-      <div className="container">
+      <div className="container centerContainer">
         <div className="row">
           {products}
         </div>

@@ -1,13 +1,16 @@
 import React from 'react';
 
 function Header(props) {
+  let cartCount = 0;
+  props.cartItemCount.map(res => { cartCount += parseInt(res.count); });
   return (
 
     <React.Fragment>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <div><img className="frog" src="https://cdn.pixabay.com/photo/2016/01/29/22/04/frog-1168751_960_720.jpg"/></div>
-        <div className='title'>Frog Sales</div>
-        <div className="cart"><div className="cartcount" onClick={() => props.setView('cart', {})}>{props.cartItemCount}</div>&#128722;</div>
+      <nav className="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
+        <div><img className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQezCB2oLLvKdgFN2d5e1Nwf8_hd8pDnQVaqMlWMiuo_IcsUSyp" /></div>
+        <div className="d-flex justify-content-between mt-5 mOfCart">
+        </div>
+        <div className="cart" onClick={() => props.setView('cart', {})}><div className="cartcount">{cartCount}</div>&#128722;</div>
       </nav>
     </React.Fragment>
   );
