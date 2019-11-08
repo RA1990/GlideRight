@@ -26,5 +26,4 @@ if (empty($_GET['id'])) {
   }
   print(json_encode($data));
 }
-
 ?>
