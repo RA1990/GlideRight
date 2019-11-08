@@ -51,7 +51,7 @@ class ProductDetails extends React.Component {
     if (this.state.product != null) {
       return (
         <div className="container mod">
-          <div className="card p-5" key={firstProduct.id}>
+          <div className="card p-5 marginForModel" key={firstProduct.id}>
             <div><button className="btn btn-primary btc" onClick={() => this.props.click()}>
               &#60;  Back to Catalog
             </button></div>
@@ -65,7 +65,7 @@ class ProductDetails extends React.Component {
                       <span className="glyphicon glyphicon-minus">-</span>
                     </button>
                   </span>
-                  <input type="text" name="quant[2]" className="form-control input-number" value={this.state.cartQuantity} min="1" max="10"/>
+                  <input type="text" name="quant[2]" className="form-control input-number text-center" value={this.state.cartQuantity} min="1" max="10"/>
                   <span className="input-group-btn">
                     <button onClick={this.addQuantityOfProduct} type="button" className="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
                       <span className="glyphicon glyphicon-plus">+</span>

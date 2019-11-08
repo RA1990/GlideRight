@@ -5,19 +5,13 @@ if (!INTERNAL) {
 }
 $bodyData = getBodyData();
 
-
-
-
 $count = intval($bodyData['count']);
-
-
 
 $id = $bodyData['product']['id'];
 
 if ($id <= 0) {
   throw new Exception("Id is invalid");
 }
-
 
 if (array_key_exists('cartID',$_SESSION)) {
   $cartID = $_SESSION['cartID'];
@@ -34,7 +28,6 @@ if (!$priceResult) {
 }
 
 $row_cnt = mysqli_num_rows($priceResult);
-
 
 if ($row_cnt === 0) {
   throw new Exception("invalid product id " . $id);

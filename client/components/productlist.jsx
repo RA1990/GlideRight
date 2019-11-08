@@ -38,8 +38,8 @@ class ProductList extends React.Component {
     });
 
     return (
-      <div className="container">
-        <div className="row imagerow">
+      <div className="container centerContainer">
+        <div className="row">
           {products}
         </div>
       </div>

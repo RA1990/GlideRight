@@ -32,14 +32,14 @@ export default class ProductListItem extends React.Component {
           </div>
         </div>
       </div>
-      <div onClick={this.modal} className="card col-md-3 mb-3 zoom">
-        <div className="card-body">
-          <img src={this.props.image} className="card-img-top" alt="item1" />
-          <h5 className="card-title">{this.props.name}</h5>
-          <p className="card-text">{this.props.shortDescription}</p>
-          <p className="card-text"><span className="badge badge-primary" >${(this.props.price / 100).toFixed(2)}</span></p>
+        <div onClick={this.modal} className="card col-md-3 mb-3 zoom">
+          <div className="card-body text-left">
+            <img src={this.props.image} className="card-img-top" alt="item1" />
+            <h5 className="card-title">{this.props.name}</h5>
+            <p className="text-left">{this.props.shortDescription}</p>
+            <p className="text-left"><span className="badge badge-primary" >${(this.props.price / 100).toFixed(2)}</span></p>
+          </div>
         </div>
-      </div>
     </>
     );
   }
