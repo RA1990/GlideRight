@@ -1,6 +1,10 @@
+/* ##Device = Desktops# #Screen = 1281px to higher resolution desktops*/
 .logo{
-    width: 40%;
-    border-radius: 20%;
+  width: 40%;
+  border-radius: 20%;
+}
+.adjustNoItemButton{
+ margin-left: 41%;
 }
 html, body {
   max-width: 100%;
@@ -22,8 +26,9 @@ html, body {
     margin-bottom: 24%;
 }
 .color{
-    margin-left: 3%;
     color: aliceblue;
+    margin-right: 3%;
+    margin-left: 0%;
 }
 .modaltop{
     margin-top: 50%;
@@ -65,21 +70,15 @@ html, body {
     margin-top: 7%;
     height: 20%;
 }
-.imagerow{
-    border-radius: 3%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF9V4i7pjHs1mtEBdTKXSQGERzVUw_hDK6PEWPi0MOBktOFkWo");
-}
 body{
     background-color:black;
 }
 .textcolor{
-    margin-left: 22%;
+    margin-left: 26%;
     color: aliceblue;
 }
 .checkoutTextColor{
-    margin-left: 16%;
+    margin-left: 23%;
     color: aliceblue;
 }
 .checkoutBtn{
@@ -87,12 +86,12 @@ body{
 }
 .cart{
     cursor: pointer;
-    margin-left: 75%;
+    margin-left: 80%;
     color:aliceblue;
     font-size: 5rem;
 }
 .cartcount{
-    margin-left: 2%;
+    margin-left: 1.5%;
     position: absolute;
     font-size: 25px;
     margin-top: 1.5%;
@@ -108,14 +107,11 @@ body{
  transition: all 0.2s ease-in-out;
 }
 .container {
-    margin-right: 11%;
+    margin-right: 20%;
     margin-top: 20px;
 }
 form{
     width: 50%;
-    margin-left: 20%;
-}
-H1,p{
     margin-left: 20%;
 }
 .placeOrder{
@@ -140,7 +136,7 @@ H1,p{
     font-size: 20px;
     position: fixed;
     top: 10%;
-    left: 9%;
+    left: 18%;
     z-index: 1050;
     width: 100%;
     height: 100%;
@@ -152,7 +148,7 @@ H1,p{
     width: 76%;
 }
 .Jumbo{
-    margin-top: 9%;
+    margin-top: 7%;
     height: 85vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -174,8 +170,8 @@ H1,p{
 }
 .prodet{
     margin-top: 3%;
-    height: 37vh;
-    width: 37vw;
+    height: 36vh;
+    width: 33vw;
 }
 .checkoutContainer{
 margin-top: 13%;
@@ -192,11 +188,12 @@ margin-top: 13%;
     margin-left: 6%;
 }
 .card-body{
+    text-align:center;
     margin-top: 4%;
-    background-color: black;
-    color: aliceblue;
+    color: black;
     margin-bottom: 4%;
     border-radius: 2%;
+    background-color: white;
 }
 .card-body:hover {
     cursor: pointer;
@@ -217,10 +214,47 @@ margin-top: 13%;
   margin: 40px auto;
 
 }
+
+@media screen
+  and (min-device-width: 1200px)
+  and (max-device-width: 1600px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+.centerContainer{
+    margin-left: 11%;
+}
+.textcolor{
+    margin-left: 18%;
+}
+.checkoutContainer{
+    margin-left: 0%;
+    margin-right: 29%;
+}
+.mlFooter{
+    margin-left: 6%;
+}
+.marginForModel{
+    margin-right: 21%;
+}
+.adjustNoItemButton{
+ margin-left: 55%;
+}
+}
+
 /*media start here*/
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {/*ipad*/
 .cartcount{
   margin-top: 2.5%;
+  margin-left: 2%;
+}
+.adjustNoItemButton{
+  margin-top:5%;
+  margin-left: 46%;
+}
+.Jumbo{
+    height: 91vh;
+}
+.centerContainer{
+    margin-left: 5%;
 }
 .imagerow{
   margin-left: 3%;
@@ -230,6 +264,9 @@ margin-top: 13%;
 }
 .checkoutBtn{
   margin-left: -7%;
+}
+.logo {
+    width: 71%;
 }
 .noItem {
     margin-bottom: 32%;
@@ -261,6 +298,9 @@ margin-top: 13%;
 .foot{
     height: 18vh;
 }
+.checkoutTextColor {
+    margin-left: 14%;
+}
 }
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {/*ipad*/
 .cart{
@@ -270,12 +310,18 @@ margin-top: 13%;
     margin-top: 2.5%;
     margin-left: 3%;
 }
-.title1{
-    margin-left: -283%;
+.noItem {
+    margin-bottom: 62%;
+}
+.centerContainer{
+    margin-left: 5%;
 }
 .checkoutContainer{
     margin-top: 33%;
     margin-bottom: 22%;
+}
+.placeOrder {
+    height: 6vh;
 }
 .mt{
 margin-top: 33%;
@@ -287,6 +333,7 @@ margin-top: 33%;
     width: 83%;
 }
 .textcolor {
+    margin-bottom: 19%;
     margin-left: 16%;
 }
 .checkoutBtn {
@@ -310,8 +357,6 @@ margin-top: 33%;
     left: 2%;
 }
 }
-
-
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){/*iphone*/
 .cart{
     font-size: 3rem;
@@ -319,8 +364,28 @@ margin-top: 33%;
 }
 .cartcount{
     margin-top: 2.5%;
-    margin-left: 2%;
+    margin-left: 2.5%;
     font-size:16px;
+}
+.centerContainer{
+    margin-left: 6%;
+}
+.inputWidth {
+    width: 84%;
+}
+.prodet {
+    margin-top: 1%;
+    height: 37vh;
+    width: 25vw;
+    float: right;
+    margin-right: 9%;
+}
+.Jumbo{
+    height: 88vh;
+}
+.marginForModel{
+    text-align: left;
+    margin-right: 15%;
 }
 .mt{
     margin-top: 13%;
@@ -365,8 +430,12 @@ margin-top: 33%;
 }
 .modaltop {
     width: 80%;
-    margin-left: 11%;
+    margin-left: 17%;
     margin-top: 0%;
+}
+.cToShop{
+    font-size: 10px;
+    margin-top: -5%;
 }
 .fs{
     height: 5vh;
@@ -380,22 +449,12 @@ margin-top: 33%;
 .checkoutContainer {
     margin-top: 13%;
 }
-.prodet {
-    margin-top: 1%;
-    height: 38vh;
-    width: 30vw;
-    float: right;
-    margin-right: 19%;
-}
 .mod{
     margin-top: 0;
     top: -2%;
 }
 .productName{
    font-size:0px;
-}
-.inputWidth{
-    width: 60%;
 }
 .longText{
     font-size: 43%;
@@ -418,6 +477,12 @@ margin-top: 33%;
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){/*iphone*/
 .title1{
     margin-left: -194%;
+}
+.noItem {
+    margin-bottom: 64%;
+}
+.placeOrder{
+    height: 10vh;
 }
 .mod{
     width: 116%;
@@ -460,7 +525,7 @@ margin-top: 33%;
     width: 21%;
 }
 .Jumbo{
-    height: 53vh;
+    height: 44vh;
 }
 .imagerow{
     background-image: none;

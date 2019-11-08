@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './header';
 import ProductList from './productlist';
-import ProductDetails from './product-details';
 import CartSummary from './cartSummary';
 import CheckoutForm from './checkoutForm';
 import Jumbo from './jumbotron';
@@ -50,7 +49,6 @@ export default class App extends React.Component {
   }
 
   addToCart(product, count, nextView = 'catalog') {
-    const addToCart = [];
     const req = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -62,9 +60,6 @@ export default class App extends React.Component {
     fetch(`/api/cart.php`, req)
       .then(req => {
         this.getCartItems(nextView);
-      })
-      .catch((...data) => {
-        // there was an error with request
       });
   }
 
@@ -120,13 +115,6 @@ export default class App extends React.Component {
           <Jumbo/>
           <ProductList onClick={this.setView} cartItem={this.addToCart}/>
           <Footer/>
-        </React.Fragment>
-      );
-    }
-    if (this.state.view.name === 'details') {
-      return (
-        <React.Fragment>
-          <ProductDetails onClick={this.setView} params={this.state.view.params} cartItem={this.addToCart}/>
         </React.Fragment>
       );
     }

@@ -8,7 +8,7 @@ class CartSummaryItem extends React.Component {
     this.getProduct = this.getProduct.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.state = {
-      ProductId: parseInt(this.props.id), // TODO: change to product id
+      ProductId: parseInt(this.props.id),
       product: [],
       cartTotalQuantity: parseInt(this.props.count),
       price: parseInt(this.props.price),
@@ -22,13 +22,6 @@ class CartSummaryItem extends React.Component {
       .then(res => res.json())
       .then(res => res[0])
       .then(res => this.setState({ product: res })));
-    // setTimeout(
-    //   function () {
-    //
-    //   }.bind(this),
-    //   990000
-    // );
-
   }
 
   componentDidMount(props) {
@@ -37,17 +30,12 @@ class CartSummaryItem extends React.Component {
 
   deleteItem(event) {
     event.preventDefault();
-    let newcart = null;
     const currentparam = this.props.id;
     fetch(`/api/deleteitem.php?id=` + currentparam)
       .then(res => res.json())
       .then(res => {
-        // newcart = res;
-        // newcart.splice(0, 1);
         this.props.cartUpdatedCallback('catalog');
       });
-    // .then(response => this.setState({ product: newcart }))
-    // .then(res => window.location.reload());
   }
 
   getCartItems() {
@@ -58,7 +46,6 @@ class CartSummaryItem extends React.Component {
   modifyCartCount(countDelta) {
     let newAmount = this.state.cartTotalQuantity + countDelta;
     if (newAmount < 1 || newAmount > 9) {
-      // don't allow them to go below 1 or above 9
       return;
     }
     this.props.addToCart(this.state.product, countDelta, 'cart');
@@ -71,7 +58,7 @@ class CartSummaryItem extends React.Component {
   render() {
 
     return (
-      <div className="container border">
+      <div className="container">
         <div className="card-body row ">
           <div className="col-12 col-md-3">
             <img src={this.props.image} className="card-img summaryImg" alt="item" />
@@ -84,7 +71,7 @@ class CartSummaryItem extends React.Component {
                   <span className="glyphicon glyphicon-minus">-</span>
                 </button>
               </span>
-              <input type="text" name="quant[2]" className="form-control input-number" value={this.state.cartTotalQuantity} min="1" max="10" />
+              <input type="text" name="quant[2]" className="form-control input-number text-center" value={this.state.cartTotalQuantity} min="1" max="10" />
               <span className="input-group-btn">
                 <button onClick={() => this.modifyCartCount(1)} type="button" className="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
                   <span className="glyphicon glyphicon-plus">+</span>

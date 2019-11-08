@@ -10,7 +10,6 @@ intval($id);
 $id = $id['id'];
 $cartID = null;
 
-
 if (empty($_SESSION['cartID'])) {
   print("[]");
   exit();
@@ -18,14 +17,14 @@ if (empty($_SESSION['cartID'])) {
   $cartId = intval($_SESSION['cartID']);
 }
 
-  $query = "SELECT cartItems.count, wicked.id, wicked.name, wicked.price, wicked.shortDescription, wicked.image FROM `cartItems` JOIN `wicked` ON cartItems.productID = wicked.id";
+$query = "SELECT cartItems.count, wicked.id, wicked.name, wicked.price, wicked.shortDescription, wicked.image FROM `cartItems` JOIN `wicked` ON cartItems.productID = wicked.id";
 
-  $result = mysqli_query($conn, $query);
+$result = mysqli_query($conn, $query);
 
-  $data = [];
-  while($row = mysqli_fetch_assoc($result)) {
+$data = [];
+while($row = mysqli_fetch_assoc($result)) {
     $data[] = $row;
-  }
+}
   if($data === []) {
     print("[]");
     exit();

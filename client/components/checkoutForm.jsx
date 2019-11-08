@@ -21,7 +21,7 @@ export default class CheckoutForm extends React.Component {
         },
         creditCardInfo: {
           placeholder: 'enter credit card 13 digits no space',
-          regex: /^[0-9]{1,13}$/,
+          regex: /^[0-9]{13}$/,
           error: 'number must be 13 digits no spaces',
           displayedError: '',
           value: '',
@@ -52,12 +52,10 @@ export default class CheckoutForm extends React.Component {
   handleOrder() {
     for (let inputKey in this.state.inputs) {
       if (this.state.inputs[inputKey].displayClass === 'text-danger' || this.state.inputs[inputKey].displayClass === 'text-secondary') {
-        return undefined;
-      } else {
-        this.setState({ placeOrder: true });
+        return;
       }
     }
-
+    this.setState({ placeOrder: true });
   }
 
   handleInputChange(event) {
@@ -86,8 +84,8 @@ export default class CheckoutForm extends React.Component {
   getCartTotal() {
     let cartTotalItem = this.props.allItems;
     let total = 0;
-    for (let i = 0; i < cartTotalItem.length; i++) {
-      total += parseInt(cartTotalItem[i].price * cartTotalItem[i].count);
+    for (let cartItemIndex = 0; cartItemIndex < cartTotalItem.length; cartItemIndex++) {
+      total += parseInt(cartTotalItem[cartItemIndex].price * cartTotalItem[cartItemIndex].count);
     }
     return total;
   }
@@ -150,7 +148,7 @@ export default class CheckoutForm extends React.Component {
               <div className="container">
                 <div className="row">
                   <div className="col">
-                    <button className="btn btn-link mt-4" onClick={() => this.props.setView('catalog', {})}>
+                    <button className="btn btn-link btn-warning text-light cToShop" onClick={() => this.props.setView('catalog', {})}>
                       &#60; continue shopping
                     </button>
                   </div>
