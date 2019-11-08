@@ -25,6 +25,4 @@ if (empty($_GET['id'])) {
     $data[] = $row;
   }
   print(json_encode($data));
-}
-
 ?>
