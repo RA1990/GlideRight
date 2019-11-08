@@ -25,8 +25,5 @@ if (empty($_GET['id'])) {
     $data[] = $row;
   }
   print(json_encode($data));
-<<<<<<< HEAD
 }
-=======
->>>>>>> 4dadddc05cbf34d4510fffaa0063d1b607e8abd6
 ?>
