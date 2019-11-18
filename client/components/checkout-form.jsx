@@ -94,12 +94,12 @@ export default class CheckoutForm extends React.Component {
     if (this.state.placeOrder === true) {
       return (
         <>
-          <div className="container mt">
+          <div className="container mt font-fam">
             <button className="btn btn-link btn-warning text-light" onClick={() => this.props.setView('catalog', {})}>
               &#60;  Back to Catalog
             </button>
           </div>;
-    <div className=" mt-5 d-block p-2 bg-dark text-white text-center checkout">
+    <div className=" mt-5 d-block p-2 bg-dark text-white text-center checkout font-fam">
       <span>Thank You For Ordering</span>
       <h2>Your Order Number is </h2>
       <h2>{Math.floor(Math.random() * 1000000000)}</h2>
@@ -110,7 +110,7 @@ export default class CheckoutForm extends React.Component {
     const input = this.state.inputs;
     return (
       <>
-        <div className="modal" id={this.state.modal} role="dialog">
+        <div className="modal font-fam" id={this.state.modal} role="dialog">
           <div className="modal-dialog" role="document">
             <div className="modal-content modaltop">
               <div className="modal-body">
@@ -122,7 +122,7 @@ export default class CheckoutForm extends React.Component {
             </div>
           </div>
         </div>
-        <div className="checkout-container">
+        <div className="checkout-container font-fam">
           <div className="container checkout-text-color">
             <h1 className="checkout-text-color">Checkout</h1>
             <p className="checkout-text-color">Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
