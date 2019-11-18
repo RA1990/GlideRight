@@ -38,7 +38,7 @@ class ProductList extends React.Component {
     });
 
     return (
-      <div className="container centerContainer">
+      <div className="container center-container">
         <div className="row">
           {products}
         </div>

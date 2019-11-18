@@ -13,7 +13,7 @@ if ($id <= 0) {
   throw new Exception("Id is invalid");
 }
 
-if (array_key_exists('cartID',$_SESSION)) {
+if (array_key_exists('cartID', $_SESSION)) {
   $cartID = $_SESSION['cartID'];
 } else {
   $cartID = false;
@@ -42,7 +42,7 @@ $startTransactionQuery = "START TRANSACTION";
 
 $transactionResult = mysqli_query($conn, $startTransactionQuery);
 
-if(!$cartID) {
+if (!$cartID) {
   $insertQuery = "INSERT INTO `cart` SET `created`=NOW()";
   $insertResult = mysqli_query($conn, $insertQuery);
   $cartID = mysqli_insert_id($conn);
@@ -50,11 +50,11 @@ if(!$cartID) {
 }
 $price  = $productData[0]['price'];
 $insertCount = $count;
-if($count<0){
+if ($count < 0) {
   $insertCount = 0;
 }
 
-  $insertToTableQuery = "INSERT INTO `cartItems` SET `count`=$insertCount, `productID`=$id, `price`=$price,
+$insertToTableQuery = "INSERT INTO `cartItems` SET `count`=$insertCount, `productID`=$id, `price`=$price,
  `cartID`= $cartID ON DUPLICATE KEY UPDATE `count`=`count`+ {$count}";
 
 print($insertToTableQuery);
@@ -71,5 +71,3 @@ if (mysqli_affected_rows($conn) < 1) {
 };
 
 mysqli_query($conn, "COMMIT");
-
-?>

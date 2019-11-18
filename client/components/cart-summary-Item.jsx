@@ -65,7 +65,7 @@ class CartSummaryItem extends React.Component {
           </div>
           <div className="col-6 col-md-4 short">
             <h5 className="card-title">{this.props.name}</h5>
-            <div className="plusMinusButton input-group">
+            <div className="plus-minus-button input-group">
               <span className="input-group-btn">
                 <button onClick={() => this.modifyCartCount(-1)} type="button" className="btn btn-danger btn-number" data-type="minus" data-field="quant[2]">
                   <span className="glyphicon glyphicon-minus">-</span>
@@ -80,7 +80,7 @@ class CartSummaryItem extends React.Component {
             </div>
             <button onClick={() => this.deleteItem(event)} type="button" className="delete btn btn-danger" >Delete</button>
             <p className="card-text badge badge-primary">{(this.state.originalPrice * this.state.cartTotalQuantity / 100).toFixed(2)}</p>
-            <p className="card-text">{this.props.shortDescription}</p>
+            <p className="card-text cart-sum-text">{this.props.shortDescription}</p>
           </div>
         </div>
       </div>

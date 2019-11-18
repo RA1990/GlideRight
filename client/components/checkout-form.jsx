@@ -93,67 +93,67 @@ export default class CheckoutForm extends React.Component {
   render() {
     if (this.state.placeOrder === true) {
       return (
-      <>
-        <div className="container mt">
-          <button className="btn btn-link btn-warning text-light" onClick={() => this.props.setView('catalog', {})}>
-            &#60;  Back to Catalog
-          </button>
-        </div>;
-    <div className=" mt-5 d-block p-2 bg-dark text-white text-center checkout">
+        <>
+          <div className="container mt font-fam">
+            <button className="btn btn-link btn-warning text-light" onClick={() => this.props.setView('catalog', {})}>
+              &#60;  Back to Catalog
+            </button>
+          </div>;
+    <div className=" mt-5 d-block p-2 bg-dark text-white text-center checkout font-fam">
       <span>Thank You For Ordering</span>
       <h2>Your Order Number is </h2>
-      <h2>{ Math.floor(Math.random() * 1000000000) }</h2>
+      <h2>{Math.floor(Math.random() * 1000000000)}</h2>
     </div>
-      </>
+        </>
       );
     }
     const input = this.state.inputs;
     return (
       <>
-        <div className="modal" id={this.state.modal} role="dialog">
+        <div className="modal font-fam" id={this.state.modal} role="dialog">
           <div className="modal-dialog" role="document">
             <div className="modal-content modaltop">
               <div className="modal-body">
                 <p className="mr-5">This is a demo site there are no products for sale</p>
               </div>
               <div className="modal-footer">
-                <button onClick={this.modal} type="button" className="btn btn-secondary modalButton" data-dismiss="modal">I Agree</button>
+                <button onClick={this.modal} type="button" className="btn btn-secondary modal-button" data-dismiss="modal">I Agree</button>
               </div>
             </div>
           </div>
         </div>
-        <div className="checkoutContainer">
-          <div className="container checkoutTextColor">
-            <h1 className="checkoutTextColor">Checkout</h1>
-            <p className="checkoutTextColor">Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
-            <form className="checkoutTextColor" onSubmit={this.handleSubmit}>
+        <div className="checkout-container font-fam">
+          <div className="container checkout-text-color">
+            <h1 className="checkout-text-color">Checkout</h1>
+            <p className="checkout-text-color">Order Total:${(this.getCartTotal() / 100).toFixed(2)}</p>
+            <form className="checkout-text-color" onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label >Name</label>
-                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="customerName" type="text" pattern="[a-zA-Z\-'\s]+" value={input.customerName.value} className={'fs form-control ' + input.customerName.displayClass} placeholder="enter name" required/>
-                <div className="inputError">{input.customerName.displayedError}</div>
+                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="customerName" type="text" pattern="[a-zA-Z\-'\s]+" value={input.customerName.value} className={'fs form-control ' + input.customerName.displayClass} placeholder="enter name" required />
+                <div className="input-error">{input.customerName.displayedError}</div>
               </div>
 
               <div className="form-group">
                 <label>Credit Card</label>
-                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="creditCardInfo" type="text" pattern="^\d{13}$" value={input.creditCardInfo.value} className={'fs form-control ' + input.creditCardInfo.displayClass} placeholder="enter credit card 13 digits no space" required/>
-                <div className="inputError">{input.creditCardInfo.displayedError}</div>
+                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="creditCardInfo" type="text" pattern="^\d{13}$" value={input.creditCardInfo.value} className={'fs form-control ' + input.creditCardInfo.displayClass} placeholder="enter credit card 13 digits no space" required />
+                <div className="input-error">{input.creditCardInfo.displayedError}</div>
               </div>
 
               <div className="form-group">
                 <label>Shipping Address</label>
                 <textarea onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="shippingInfo" pattern="^\s*\S+(?:\s+\S+){2}\s*\S+\s*\S+\s*\S+$" value={input.shippingInfo.value} className={'fs form-control ' + input.shippingInfo.displayClass} placeholder={input.shippingInfo.placeholder} rows="3"></textarea>
-                <div className="inputError">{input.shippingInfo.displayedError}</div>
+                <div className="input-error">{input.shippingInfo.displayedError}</div>
               </div>
 
               <div className="container">
                 <div className="row">
                   <div className="col">
-                    <button className="btn btn-link btn-warning text-light cToShop" onClick={() => this.props.setView('catalog', {})}>
+                    <button className="btn btn-link btn-warning text-light continue-to-shop-button" onClick={() => this.props.setView('catalog', {})}>
                       &#60; continue shopping
                     </button>
                   </div>
                   <div className="col">
-                    <button onClick={this.handleOrder} type="button" className="btn placeOrder btn-primary">Place Order</button>
+                    <button onClick={this.handleOrder} type="button" className="btn place-order btn-primary">Place Order</button>
                   </div>
                 </div>
               </div>

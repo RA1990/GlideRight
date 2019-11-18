@@ -7,5 +7,3 @@ require_once('db_connection.php');
 $query = "DELETE FROM `cartItems` WHERE cartItems.productID=" . $_GET['id'];
 
 $result = mysqli_query($conn, $query);
-
-?>
