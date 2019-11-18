@@ -80,7 +80,7 @@ class CartSummaryItem extends React.Component {
             </div>
             <button onClick={() => this.deleteItem(event)} type="button" className="delete btn btn-danger" >Delete</button>
             <p className="card-text badge badge-primary">{(this.state.originalPrice * this.state.cartTotalQuantity / 100).toFixed(2)}</p>
-            <p className="card-text">{this.props.shortDescription}</p>
+            <p className="card-text cart-sum-text">{this.props.shortDescription}</p>
           </div>
         </div>
       </div>

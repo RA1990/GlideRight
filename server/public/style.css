@@ -5,8 +5,38 @@
     border-radius: 20%;
 }
 
+.col-for-cards {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
 .adjust-no-item-button {
     margin-left: 41%;
+}
+
+.foot-link-to-portfolio {
+    font-size: 25px;
+}
+
+.contact-header {
+    font-size: 42px;
+}
+
+.phone-link, .email-link {
+    font-size: 25px;
+    width: 22vw;
+}
+
+button, input, p {
+    font-family: Akronim, sans-serif;
+}
+
+.font-fam {
+    font-family: Akronim, sans-serif;
+}
+
+h5 {
+    font-family: Faster One, sans-serif;
 }
 
 html, body {
@@ -36,7 +66,7 @@ html, body {
 
 .color {
     color: aliceblue;
-    margin-right: 3%;
+    margin-right: 1%;
     margin-left: 0%;
 }
 
@@ -68,8 +98,8 @@ html, body {
 
 .contact {
     color: aliceblue;
-    margin-top: -3%;
-    margin-right: 3%;
+    margin-top: -5%;
+    margin-right: -25%;
 }
 
 .title1 {
@@ -113,7 +143,7 @@ html, body {
 .cart-count {
     margin-left: 1.5%;
     position: absolute;
-    font-size: 25px;
+    font-size: 34px;
     margin-top: 1.5%;
 }
 
@@ -152,7 +182,7 @@ form {
     float: right;
 }
 
-.itemTotal {
+.item-total {
     display: inline-block;
     margin-right: 47%;
     margin-left: 0%;
@@ -178,6 +208,7 @@ form {
 }
 
 .jumbo {
+    font-family: Faster One, sans-serif;
     margin-top: 7%;
     height: 85vh;
     background-size: cover;
@@ -269,10 +300,14 @@ form {
     .cart-count {
         margin-top: 2.5%;
         margin-left: 2%;
+        font-size: 28px;
     }
     .adjust-no-item-button {
         margin-top: 5%;
         margin-left: 46%;
+    }
+    .contact {
+        margin-right: -23%;
     }
     .jumbo {
         height: 91vh;
@@ -311,16 +346,16 @@ form {
     .mt {
         margin-top: 16%;
     }
-    .modaltop {
+    /* .modaltop {
         width: 54vw;
         margin-top: 45%;
         height: 28vh;
-    }
-    .checkout-container {
+    } */
+    /* .checkout-container {
         margin-top: 25%;
-    }
+    } */
     .foot {
-        height: 18vh;
+        height: 21vh;
     }
     .checkout-text-color {
         margin-left: 14%;
@@ -336,18 +371,42 @@ form {
         margin-top: 2.5%;
         margin-left: 3%;
     }
+    .card {
+        margin-left: 1%;
+    }
+    .col-for-cards {
+        flex: none;
+        max-width: 32%;
+    }
+    .foot-link-to-portfolio {
+        font-size: 21px;
+    }
+    .phone-link, .email-link {
+        font-size: 19px;
+    }
+    .contact-header {
+        font-size: 30px;
+    }
+    .contact {
+        margin-right: -23%;
+    }
     .no-item {
+        font-size: 5vh;
         margin-bottom: 62%;
     }
+    .adjust-no-item-button {
+        font-size: 4vh;
+        margin-left: 33%;
+    }
     .center-container {
-        margin-left: 5%;
+        margin-left: 3%;
     }
     .checkout-container {
         margin-top: 33%;
         margin-bottom: 22%;
     }
     .place-order {
-        height: 6vh;
+        height: 4vh;
     }
     .mt {
         margin-top: 33%;
@@ -359,11 +418,11 @@ form {
         width: 83%;
     }
     .textcolor {
-        margin-bottom: 19%;
+        margin-bottom: 33%;
         margin-left: 16%;
     }
     .checkout-btn {
-        margin-top: -30%;
+        margin-top: -8%;
         margin-left: -21%;
     }
     .imagerow {
@@ -395,11 +454,25 @@ form {
         margin-left: 2.5%;
         font-size: 16px;
     }
+    .col-for-cards {
+        flex: none;
+        max-width: 100%;
+    }
     .center-container {
         margin-left: 6%;
     }
     .input-width {
-        width: 84%;
+        width: 39%;
+    }
+    .phone-link, .email-link {
+        font-size: 15px;
+        width: 22vw;
+    }
+    .contact-header {
+        font-size: 24px;
+    }
+    .foot-link-to-portfolio {
+        font-size: 18px;
     }
     .prodet {
         margin-top: 1%;
@@ -508,6 +581,27 @@ form {
     .title1 {
         margin-left: -194%;
     }
+    .phone-link, .email-link {
+        font-size: 12px;
+        width: 22vw;
+    }
+    .contact-header {
+        font-size: 16px;
+    }
+    .cart-sum-text {
+        width: 220%;
+    }
+    .foot-link-to-portfolio {
+        font-size: 12px;
+    }
+    .contact {
+        margin-top: -6%;
+        margin-right: -17%;
+    }
+    .col-for-cards {
+        flex: none;
+        max-width: 90%;
+    }
     .no-item {
         margin-bottom: 64%;
     }
@@ -543,8 +637,8 @@ form {
     }
     .prodet {
         margin-top: 1%;
-        height: 13vh;
-        width: 34vw;
+        height: 30vh;
+        width: 70vw;
         float: left;
     }
     .mt {
@@ -596,7 +690,7 @@ form {
         font-size: 14px;
     }
     .input-width {
-        width: 128%;
+        width: 106%;
     }
     .long-text {
         font-size: 43%;

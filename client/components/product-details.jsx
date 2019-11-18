@@ -50,15 +50,15 @@ class ProductDetails extends React.Component {
     const firstProduct = this.state.product;
     if (this.state.product != null) {
       return (
-        <div className="container mod">
+        <div className="container mod font-fam">
           <div className="card p-5 margin-for-model" key={firstProduct.id}>
             <div><button className="btn btn-primary btc" onClick={() => this.props.click()}>
               &#60;  Back to Catalog
             </button></div>
 
             <div className="row">
-              <div className="col-12 col-md-8 p2"><img className="prodet" src={firstProduct.image} /></div>
-              <div className="col-6 col-md-4"><h5 className="product-name">{firstProduct.name}</h5>
+              <div className="col p2"><img className="prodet" src={firstProduct.image} /></div>
+              <div className="col"><h5 className="product-name">{firstProduct.name}</h5>
                 <div className="input-group input-width">
                   <span className="input-group-btn">
                     <button onClick={this.minusQuantityOfProduct} type="button" className="btn btn-danger btn-number" data-type="minus" data-field="quant[2]">
