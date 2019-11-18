@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './header';
 import ProductList from './productlist';
 import CartSummary from './cartSummary';
-import CheckoutForm from './checkoutForm';
+import CheckoutForm from './checkout-form';
 import Jumbo from './jumbotron';
 import Footer from './footer';
 
@@ -95,7 +95,7 @@ export default class App extends React.Component {
         <div>
           <Header cartItemCount={this.state.cart} setView={this.setView} />
           <CheckoutForm userPaymentInfo={this.placeOrder} setView={this.setView} allItems={this.state.cart} />
-          <Footer/>
+          <Footer />
         </div>
       );
     }
@@ -103,7 +103,7 @@ export default class App extends React.Component {
       return (
         <React.Fragment>
           <Header cartItemCount={this.state.cart} setView={this.setView} />
-          <CartSummary cartUpdatedCallback={this.getCartItems} cart={this.state.cart} addToCart={this.addToCart} setView={this.setView}/>
+          <CartSummary cartUpdatedCallback={this.getCartItems} cart={this.state.cart} addToCart={this.addToCart} setView={this.setView} />
           <Footer />
         </React.Fragment>
       );
@@ -111,10 +111,10 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <React.Fragment>
-          <Header cartItemCount={this.state.cart} setView={this.setView}/>
-          <Jumbo/>
-          <ProductList onClick={this.setView} cartItem={this.addToCart}/>
-          <Footer/>
+          <Header cartItemCount={this.state.cart} setView={this.setView} />
+          <Jumbo />
+          <ProductList onClick={this.setView} cartItem={this.addToCart} />
+          <Footer />
         </React.Fragment>
       );
     }

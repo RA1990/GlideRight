@@ -13,15 +13,15 @@ function CartSummary(props) {
   if (props.cart.length === 0) {
     return (
       <>
-    <div className="container mt">
-      <button className="btn btn-link btn-warning text-light adjustNoItemButton" onClick={() => props.setView('catalog', {})}>
-        &#60;  Back to Catalog
-      </button>
-    </div>;
+        <div className="container mt">
+          <button className="btn btn-link btn-warning text-light adjustNoItemButton" onClick={() => props.setView('catalog', {})}>
+            &#60;  Back to Catalog
+          </button>
+        </div>;
     <div>
       <span className=" mt-5 d-block p-2 bg-dark text-white text-center noItem">No Items</span>
     </div>
-    </>
+      </>
     );
   }
 

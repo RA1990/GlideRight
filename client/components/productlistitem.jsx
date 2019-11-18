@@ -20,18 +20,18 @@ export default class ProductListItem extends React.Component {
 
   render() {
     return (
-    <>
-      <div className="modal" id={this.state.modal} role="dialog">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content modaltop">
-            <div className="modal-body">
-              <ProductDetails id={this.props.id} click={this.modalClose} add={this.props.addTocart}/>
-            </div>
-            <div className="modal-footer">
+      <>
+        <div className="modal" id={this.state.modal} role="dialog">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content modaltop">
+              <div className="modal-body">
+                <ProductDetails id={this.props.id} click={this.modalClose} add={this.props.addTocart} />
+              </div>
+              <div className="modal-footer">
+              </div>
             </div>
           </div>
         </div>
-      </div>
         <div onClick={this.modal} className="card col-md-3 mb-3 zoom">
           <div className="card-body text-left">
             <img src={this.props.image} className="card-img-top" alt="item1" />
@@ -40,7 +40,7 @@ export default class ProductListItem extends React.Component {
             <p className="text-left"><span className="badge badge-primary" >${(this.props.price / 100).toFixed(2)}</span></p>
           </div>
         </div>
-    </>
+      </>
     );
   }
 }

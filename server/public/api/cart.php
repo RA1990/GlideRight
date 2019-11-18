@@ -16,4 +16,3 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     require_once('cart_add.php');
     break;
 };
-?>

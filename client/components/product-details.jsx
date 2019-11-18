@@ -57,7 +57,7 @@ class ProductDetails extends React.Component {
             </button></div>
 
             <div className="row">
-              <div className="col-12 col-md-8 p2"><img className="prodet"src={firstProduct.image} /></div>
+              <div className="col-12 col-md-8 p2"><img className="prodet" src={firstProduct.image} /></div>
               <div className="col-6 col-md-4"><h5 className="productName">{firstProduct.name}</h5>
                 <div className="input-group inputWidth">
                   <span className="input-group-btn">
@@ -65,7 +65,7 @@ class ProductDetails extends React.Component {
                       <span className="glyphicon glyphicon-minus">-</span>
                     </button>
                   </span>
-                  <input type="text" name="quant[2]" className="form-control input-number text-center" value={this.state.cartQuantity} min="1" max="10"/>
+                  <input type="text" name="quant[2]" className="form-control input-number text-center" value={this.state.cartQuantity} min="1" max="10" />
                   <span className="input-group-btn">
                     <button onClick={this.addQuantityOfProduct} type="button" className="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
                       <span className="glyphicon glyphicon-plus">+</span>
@@ -74,8 +74,8 @@ class ProductDetails extends React.Component {
                 </div>
                 <p className="card-text shortText">{firstProduct.shortDescription}</p>
                 <h4 className="card-text badge badge-pill badge-primary">${(this.state.price / 100).toFixed(2)}</h4>
-                <br/>
-                <button className="addCart" onClick={() => { this.props.add(this.state.product, this.state.cartQuantity); this.props.click(); } } >Add to Cart</button>
+                <br />
+                <button className="addCart" onClick={() => { this.props.add(this.state.product, this.state.cartQuantity); this.props.click(); }} >Add to Cart</button>
               </div>
             </div>
             <p className="card-text mt-4 longText">{firstProduct.longDescription}</p>
