@@ -1,5 +1,5 @@
 import React from 'react';
-import CartSummaryItem from './cartSummaryItem';
+import CartSummaryItem from './cart-summary-item';
 
 function getCartTotal(cartItems) {
   let total = 0;
@@ -14,12 +14,12 @@ function CartSummary(props) {
     return (
       <>
         <div className="container mt">
-          <button className="btn btn-link btn-warning text-light adjustNoItemButton" onClick={() => props.setView('catalog', {})}>
+          <button className="btn btn-link btn-warning text-light adjust-no-item-button" onClick={() => props.setView('catalog', {})}>
             &#60;  Back to Catalog
           </button>
         </div>;
     <div>
-      <span className=" mt-5 d-block p-2 bg-dark text-white text-center noItem">No Items</span>
+      <span className=" mt-5 d-block p-2 bg-dark text-white text-center no-item">No Items</span>
     </div>
       </>
     );
@@ -45,7 +45,7 @@ function CartSummary(props) {
 
     <div className="container textcolor text-light">
       <h1 className="myCartTitle mt-3 mb-5 ml-2">My Cart</h1>
-      <div className="cardSpaceItem">
+      <div className="card-space-item">
         <button className="btn btn-link btn-warning text-light" onClick={() => props.setView('catalog', {})}>
           &#60;  Back to Catalog
         </button>
@@ -54,7 +54,7 @@ function CartSummary(props) {
       <p className="itemTotal">
         Total Price ${(total / 100).toFixed(2)}
       </p>
-      <div className="col-md-4 checkouButton"> <button onClick={() => { props.setView('checkout', {}); }} type="button" className="checkoutBtn btn  btn-primary" >Checkout</button>
+      <div className="col-md-4 checkout-button"> <button onClick={() => { props.setView('checkout', {}); }} type="button" className="checkout-btn btn  btn-primary" >Checkout</button>
       </div>
     </div>
   );

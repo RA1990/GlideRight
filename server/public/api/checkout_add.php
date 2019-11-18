@@ -19,7 +19,7 @@ if ($id <= 0) {
 }
 
 
-if (array_key_exists('cartID',$_SESSION)) {
+if (array_key_exists('cartID', $_SESSION)) {
   $cartID = $_SESSION['cartID'];
 } else {
   $cartID = false;
@@ -49,7 +49,7 @@ $startTransactionQuery = "START TRANSACTION";
 
 $transactionResult = mysqli_query($conn, $startTransactionQuery);
 
-if(!$cartID) {
+if (!$cartID) {
   $insertQuery = "INSERT INTO `cart` SET `created`=NOW()";
   $insertResult = mysqli_query($conn, $insertQuery);
   $cartID = mysqli_insert_id($conn);
@@ -72,4 +72,3 @@ if (mysqli_affected_rows($conn) < 1) {
 };
 
 mysqli_query($conn, "COMMIT");
-?>
