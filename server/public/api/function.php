@@ -19,4 +19,3 @@ function getBodyData()
   $assocData = json_decode($bodyData, true);
   return $assocData;
 }
-?>

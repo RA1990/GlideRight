@@ -5,7 +5,7 @@ function Footer(props) {
 
     <React.Fragment>
       <footer className=" mt-5 pt-4 foot page-footer font-large pt-4 navbar-dark bg-dark">
-        <div className="container mlFooter">
+        <div className="container ml-footer">
           <ul className="list-unstyled list-inline text-center">
             <li className="list-inline-item">
               <a href="http://www.rauljaureguicodes.com" target="_blank" rel="noopener noreferrer" className="btn-floating">

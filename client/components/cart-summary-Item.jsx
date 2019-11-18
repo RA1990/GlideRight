@@ -65,7 +65,7 @@ class CartSummaryItem extends React.Component {
           </div>
           <div className="col-6 col-md-4 short">
             <h5 className="card-title">{this.props.name}</h5>
-            <div className="plusMinusButton input-group">
+            <div className="plus-minus-button input-group">
               <span className="input-group-btn">
                 <button onClick={() => this.modifyCartCount(-1)} type="button" className="btn btn-danger btn-number" data-type="minus" data-field="quant[2]">
                   <span className="glyphicon glyphicon-minus">-</span>

@@ -20,5 +20,3 @@ if ($db->connect_error) {
 $json = json_encode($body);
 
 print($json);
-
-?>

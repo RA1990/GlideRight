@@ -51,15 +51,15 @@ class ProductDetails extends React.Component {
     if (this.state.product != null) {
       return (
         <div className="container mod">
-          <div className="card p-5 marginForModel" key={firstProduct.id}>
+          <div className="card p-5 margin-for-model" key={firstProduct.id}>
             <div><button className="btn btn-primary btc" onClick={() => this.props.click()}>
               &#60;  Back to Catalog
             </button></div>
 
             <div className="row">
               <div className="col-12 col-md-8 p2"><img className="prodet" src={firstProduct.image} /></div>
-              <div className="col-6 col-md-4"><h5 className="productName">{firstProduct.name}</h5>
-                <div className="input-group inputWidth">
+              <div className="col-6 col-md-4"><h5 className="product-name">{firstProduct.name}</h5>
+                <div className="input-group input-width">
                   <span className="input-group-btn">
                     <button onClick={this.minusQuantityOfProduct} type="button" className="btn btn-danger btn-number" data-type="minus" data-field="quant[2]">
                       <span className="glyphicon glyphicon-minus">-</span>
@@ -72,13 +72,13 @@ class ProductDetails extends React.Component {
                     </button>
                   </span>
                 </div>
-                <p className="card-text shortText">{firstProduct.shortDescription}</p>
+                <p className="card-text short-text">{firstProduct.shortDescription}</p>
                 <h4 className="card-text badge badge-pill badge-primary">${(this.state.price / 100).toFixed(2)}</h4>
                 <br />
-                <button className="addCart" onClick={() => { this.props.add(this.state.product, this.state.cartQuantity); this.props.click(); }} >Add to Cart</button>
+                <button className="add-cart" onClick={() => { this.props.add(this.state.product, this.state.cartQuantity); this.props.click(); }} >Add to Cart</button>
               </div>
             </div>
-            <p className="card-text mt-4 longText">{firstProduct.longDescription}</p>
+            <p className="card-text mt-4 long-text">{firstProduct.longDescription}</p>
           </div>
         </div>
       );
