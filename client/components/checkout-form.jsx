@@ -93,18 +93,18 @@ export default class CheckoutForm extends React.Component {
   render() {
     if (this.state.placeOrder === true) {
       return (
-      <>
-        <div className="container mt">
-          <button className="btn btn-link btn-warning text-light" onClick={() => this.props.setView('catalog', {})}>
-            &#60;  Back to Catalog
-          </button>
-        </div>;
+        <>
+          <div className="container mt">
+            <button className="btn btn-link btn-warning text-light" onClick={() => this.props.setView('catalog', {})}>
+              &#60;  Back to Catalog
+            </button>
+          </div>;
     <div className=" mt-5 d-block p-2 bg-dark text-white text-center checkout">
       <span>Thank You For Ordering</span>
       <h2>Your Order Number is </h2>
-      <h2>{ Math.floor(Math.random() * 1000000000) }</h2>
+      <h2>{Math.floor(Math.random() * 1000000000)}</h2>
     </div>
-      </>
+        </>
       );
     }
     const input = this.state.inputs;
@@ -129,13 +129,13 @@ export default class CheckoutForm extends React.Component {
             <form className="checkoutTextColor" onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label >Name</label>
-                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="customerName" type="text" pattern="[a-zA-Z\-'\s]+" value={input.customerName.value} className={'fs form-control ' + input.customerName.displayClass} placeholder="enter name" required/>
+                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="customerName" type="text" pattern="[a-zA-Z\-'\s]+" value={input.customerName.value} className={'fs form-control ' + input.customerName.displayClass} placeholder="enter name" required />
                 <div className="inputError">{input.customerName.displayedError}</div>
               </div>
 
               <div className="form-group">
                 <label>Credit Card</label>
-                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="creditCardInfo" type="text" pattern="^\d{13}$" value={input.creditCardInfo.value} className={'fs form-control ' + input.creditCardInfo.displayClass} placeholder="enter credit card 13 digits no space" required/>
+                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="creditCardInfo" type="text" pattern="^\d{13}$" value={input.creditCardInfo.value} className={'fs form-control ' + input.creditCardInfo.displayClass} placeholder="enter credit card 13 digits no space" required />
                 <div className="inputError">{input.creditCardInfo.displayedError}</div>
               </div>
 

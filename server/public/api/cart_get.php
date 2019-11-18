@@ -22,12 +22,12 @@ $query = "SELECT cartItems.count, wicked.id, wicked.name, wicked.price, wicked.s
 $result = mysqli_query($conn, $query);
 
 $data = [];
-while($row = mysqli_fetch_assoc($result)) {
-    $data[] = $row;
+while ($row = mysqli_fetch_assoc($result)) {
+  $data[] = $row;
 }
-  if($data === []) {
-    print("[]");
-    exit();
+if ($data === []) {
+  print("[]");
+  exit();
 } else {
-    print(json_encode($data));
+  print(json_encode($data));
 };
