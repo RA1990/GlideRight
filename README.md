@@ -12,8 +12,13 @@
 # Project Tech Stack
 - JavaScript
 - React
--PHP
-MySQL
-Bootstrap
+- PHP
+- MySQL
+- Bootstrap
+- OOP
+- SQL
+- CSS
+- HTML
+
 ![Image description](glideRight.png )
 
