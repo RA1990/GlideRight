@@ -22,4 +22,5 @@
 - apache2
 - linux
 ![Image description](glideRight.png )
-
+# Initial Setup
+1. Fork this repo and clone your fork from your terminal
