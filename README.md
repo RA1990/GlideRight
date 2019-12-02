@@ -9,7 +9,7 @@
    page and add it there.After you decide on which skateboard you 
    want to purchase, click checkout from the shopping cart and fill,
    out all fields.Please remember this is only a demo site
-Project Tech Stack
+#Project Tech Stack
 JavaScript
 React
 PHP
