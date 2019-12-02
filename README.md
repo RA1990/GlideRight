@@ -25,3 +25,13 @@
 # Initial Setup
 1. Fork this repo and clone your fork from your terminal
    - Click on the Fork button, located at the top right of the page
+   - Select your Github user name to complete the fork
+   
+2. Clone this repository in your terminal
+    - git clone https://github.com/RA1990/glide-right.git
+    
+3. Navigate into the /glide-right directory
+    - Open the index.html file and enjoy!
+    
+# Contributions
+ I am always looking to improve my applications, feel free to submit pull requests and reach out with suggestions, my email     address is felx90@outlook.com
