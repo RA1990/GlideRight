@@ -57,7 +57,6 @@ if ($count < 0) {
 $insertToTableQuery = "INSERT INTO `cartItems` SET `count`=$insertCount, `productID`=$id, `price`=$price,
  `cartID`= $cartID ON DUPLICATE KEY UPDATE `count`=`count`+ {$count}";
 
-print($insertToTableQuery);
 
 $insertToTableResult = mysqli_query($conn, $insertToTableQuery);
 

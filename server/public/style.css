@@ -70,7 +70,7 @@ html, body {
     margin-left: 0%;
 }
 
-.modaltop {
+.modal-top {
     margin-top: 50%;
 }
 
@@ -119,7 +119,7 @@ html, body {
     height: 20%;
 }
 
-.textcolor {
+.text-color {
     margin-left: 26%;
     color: aliceblue;
 }
@@ -213,7 +213,7 @@ form {
     height: 85vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("https://media.wired.com/photos/5954932fbe605811a2fdd6e9/master/pass/s5pOG7texzsXk-2VmYcDV-wSlTaReaaI76QjDkBci7QqWHH5gXVTOy3yhWv_3vbb2EL11iVzQOfsDpVDIR-Iko.jpeg");
+    background-image: url("image/jumbo.jpeg");
 }
 
 .prodet {
@@ -275,7 +275,7 @@ form {
     .center-container {
         margin-left: 11%;
     }
-    .textcolor {
+    .text-color {
         margin-left: 18%;
     }
     .checkout-container {
@@ -318,7 +318,7 @@ form {
     .imagerow {
         margin-left: 3%;
     }
-    .textcolor {
+    .text-color {
         margin-left: 14%;
     }
     .checkout-btn {
@@ -346,14 +346,6 @@ form {
     .mt {
         margin-top: 16%;
     }
-    /* .modaltop {
-        width: 54vw;
-        margin-top: 45%;
-        height: 28vh;
-    } */
-    /* .checkout-container {
-        margin-top: 25%;
-    } */
     .foot {
         height: 21vh;
     }
@@ -417,7 +409,7 @@ form {
     .plus-minus-button {
         width: 83%;
     }
-    .textcolor {
+    .text-color {
         margin-bottom: 33%;
         margin-left: 16%;
     }
@@ -429,7 +421,7 @@ form {
         margin-left: -5%;
         margin-right: -13%;
     }
-    .modaltop {
+    .modal-top {
         margin-top: 67%;
     }
     .checkout-text-color {
@@ -521,7 +513,7 @@ form {
     .p2 {
         position: absolute;
     }
-    .textcolor {
+    .text-color {
         margin-left: 20%;
     }
     .checkout-button {
@@ -529,7 +521,7 @@ form {
         float: none;
         margin-top: 0%;
     }
-    .modaltop {
+    .modal-top {
         width: 80%;
         margin-left: 17%;
         margin-top: 0%;
@@ -647,9 +639,6 @@ form {
     .logo {
         width: 21%;
     }
-    .Jumbo {
-        height: 44vh;
-    }
     .imagerow {
         background-image: none;
     }
@@ -659,7 +648,7 @@ form {
     .foot {
         font-size: 11px;
     }
-    .textcolor {
+    .text-color {
         margin-left: 10%;
     }
     .plus-minus-button {

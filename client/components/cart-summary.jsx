@@ -43,7 +43,7 @@ function CartSummary(props) {
   const total = getCartTotal(props.cart);
   return (
 
-    <div className="container textcolor text-light">
+    <div className="container text-color text-light">
       <h1 className="myCartTitle mt-3 mb-5 ml-2">My Cart</h1>
       <div className="card-space-item">
         <button className="btn btn-link btn-warning text-light" onClick={() => props.setView('catalog', {})}>
