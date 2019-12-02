@@ -6,7 +6,7 @@ function Header(props) {
   return (
 
     <React.Fragment>
-      <nav className="fixed-top navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="fixed-top navbar navbar-expand-lg navbar-dark bg-dark nav-h">
         <div><img className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQezCB2oLLvKdgFN2d5e1Nwf8_hd8pDnQVaqMlWMiuo_IcsUSyp" /></div>
         <div className="d-flex justify-content-between mt-5 mOfCart">
         </div>
