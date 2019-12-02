@@ -31,7 +31,7 @@ class CartSummaryItem extends React.Component {
   deleteItem(event) {
     event.preventDefault();
     const currentparam = this.props.id;
-    fetch(`/api/deleteitem.php?id=` + currentparam)
+    fetch(`/api/delete_item.php?id=` + currentparam)
       .then(res => res.json())
       .then(res => {
         this.props.cartUpdatedCallback('catalog');
