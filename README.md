@@ -19,6 +19,7 @@
 - SQL
 - CSS
 - HTML
-
+- apache2
+- linux
 ![Image description](glideRight.png )
 
