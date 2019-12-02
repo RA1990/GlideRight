@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header';
-import ProductList from './productlist';
+import ProductList from './product-list';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
 import Jumbo from './jumbotron';

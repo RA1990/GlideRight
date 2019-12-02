@@ -23,7 +23,7 @@ export default class ProductListItem extends React.Component {
       <>
         <div className="modal" id={this.state.modal} role="dialog">
           <div className="modal-dialog" role="document">
-            <div className="modal-content modaltop">
+            <div className="modal-content modal-top">
               <div className="modal-body">
                 <ProductDetails id={this.props.id} click={this.modalClose} add={this.props.addTocart} />
               </div>
