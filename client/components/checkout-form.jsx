@@ -8,8 +8,10 @@ export default class CheckoutForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOrder = this.handleOrder.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.enableOrderButton = this.enableOrderButton.bind(this);
     this.state = {
       modal: 'show',
+      buttonClass: 'arrow-control',
       inputs: {
         customerName: {
           placeholder: 'enter name',
@@ -20,16 +22,16 @@ export default class CheckoutForm extends React.Component {
           displayClass: 'text-secondary'
         },
         creditCardInfo: {
-          placeholder: 'enter credit card 13 digits no space',
-          regex: /^[0-9]{13}$/,
-          error: 'number must be 13 digits no spaces',
+          placeholder: 'enter credit card 16 digits no space',
+          regex: /^[0-9]{16}$/,
+          error: 'number must be 16 digits no spaces',
           displayedError: '',
           value: '',
           displayClass: 'text-secondary'
         },
         shippingInfo: {
           placeholder: 'Your address, aka: 123 Any St, CA 90210',
-          regex: /^[0-9]{1,5} +[a-zA-Z0-9 -]{1,},? +[A-Z]{2} +[0-9]{5}$/,
+          regex: /^[0-9]{1,5} +[a-zA-Z0-9 -.]{1,},? +[A-Z]{2} +[0-9]{5}$/,
           error: 'invaild address',
           displayedError: '',
           value: '',
@@ -40,13 +42,12 @@ export default class CheckoutForm extends React.Component {
     };
   }
   componentDidMount() {
-    window.scroll({
-      top: 0,
-      left: 100,
-      behavior: 'smooth'
-    });
+    document.body.classList.remove('overflow-x-body');
+    document.body.classList.add('overflow-control');
   }
   modal() {
+    document.body.classList.add('overflow-x-body');
+    document.body.classList.remove('overflow-control');
     this.setState({ modal: 'hide' });
   }
   handleOrder() {
@@ -56,6 +57,12 @@ export default class CheckoutForm extends React.Component {
       }
     }
     this.setState({ placeOrder: true });
+    fetch(`/api/delete_all_items.php`)
+      .then(res => res.json())
+      .then(() => {
+        this.props.cartUpdatedCallback('checkout');
+      });
+
   }
 
   handleInputChange(event) {
@@ -73,6 +80,7 @@ export default class CheckoutForm extends React.Component {
     }
     newState.inputs[inputName].value = value;
     this.setState(newState);
+    this.enableOrderButton();
   }
 
   handleSubmit(event) {
@@ -89,13 +97,24 @@ export default class CheckoutForm extends React.Component {
     }
     return total;
   }
+  enableOrderButton() {
+    let successCounter = 0;
+    for (let inputKey in this.state.inputs) {
+      if (this.state.inputs[inputKey].displayClass === 'text-success') {
+        successCounter += 1;
+      }
+    }
+    if (successCounter === 3) {
+      this.setState({ buttonClass: 'pass' });
+    }
+  }
 
   render() {
     if (this.state.placeOrder === true) {
       return (
         <>
           <div className="container mt font-fam">
-            <button className="btn btn-link btn-warning text-light" onClick={() => this.props.setView('catalog', {})}>
+            <button className="btn btn-link btn-info text-light" onClick={() => this.props.setView('catalog', {})}>
               &#60;  Back to Catalog
             </button>
           </div>;
@@ -135,7 +154,7 @@ export default class CheckoutForm extends React.Component {
 
               <div className="form-group">
                 <label>Credit Card</label>
-                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="creditCardInfo" type="text" pattern="^\d{13}$" value={input.creditCardInfo.value} className={'fs form-control ' + input.creditCardInfo.displayClass} placeholder="enter credit card 13 digits no space" required />
+                <input onKeyDownCapture={this.handleSubmit} onChange={this.handleInputChange} name="creditCardInfo" type="text" pattern="^\d{13}$" value={input.creditCardInfo.value} className={'fs form-control ' + input.creditCardInfo.displayClass} placeholder="enter credit card 16 digits no space" required />
                 <div className="input-error">{input.creditCardInfo.displayedError}</div>
               </div>
 
@@ -148,12 +167,12 @@ export default class CheckoutForm extends React.Component {
               <div className="container">
                 <div className="row">
                   <div className="col">
-                    <button className="btn btn-link btn-warning text-light continue-to-shop-button" onClick={() => this.props.setView('catalog', {})}>
+                    <button className="btn btn-link btn-info text-light continue-to-shop-button" onClick={() => this.props.setView('catalog', {})}>
                       &#60; continue shopping
                     </button>
                   </div>
                   <div className="col">
-                    <button onClick={this.handleOrder} type="button" className="btn place-order btn-primary">Place Order</button>
+                    <button onClick={this.handleOrder} type="button" className={'btn place-order btn-primary ' + this.state.buttonClass}>Place Order</button>
                   </div>
                 </div>
               </div>

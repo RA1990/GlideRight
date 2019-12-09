@@ -5,6 +5,17 @@
     border-radius: 20%;
 }
 
+img {
+    background-size: contain;
+}
+.arrow-control{
+    cursor: pointer;
+    pointer-events: none;
+}
+.overflow-control {
+    overflow: hidden;
+}
+
 .col-for-cards {
     flex: 0 0 25%;
     max-width: 25%;
@@ -41,8 +52,11 @@ h5 {
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
     background-color: black;
+}
+
+.overflow-x-body {
+    overflow-x: hidden;
 }
 
 .delete {
@@ -709,7 +723,7 @@ form {
     .logo {
         width: 28%;
     }
-    .cart {
+    2 .cart {
         font-size: 4rem;
         margin-top: -21%;
     }

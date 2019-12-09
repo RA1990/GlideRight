@@ -14,7 +14,7 @@ function CartSummary(props) {
     return (
       <>
         <div className="container mt">
-          <button className="btn btn-link btn-warning text-light adjust-no-item-button" onClick={() => props.setView('catalog', {})}>
+          <button className="btn btn-link btn-info text-light adjust-no-item-button" onClick={() => props.setView('catalog', {})}>
             &#60;  Back to Catalog
           </button>
         </div>;
@@ -29,6 +29,7 @@ function CartSummary(props) {
     return (
       <CartSummaryItem key={index}
         id={item.id}
+        cart={props.cart}
         setView={props.setView}
         addToCart={props.addToCart}
         cartUpdatedCallback={props.cartUpdatedCallback}
@@ -46,7 +47,7 @@ function CartSummary(props) {
     <div className="container text-color text-light">
       <h1 className="myCartTitle mt-3 mb-5 ml-2">My Cart</h1>
       <div className="card-space-item">
-        <button className="btn btn-link btn-warning text-light" onClick={() => props.setView('catalog', {})}>
+        <button className="btn btn-link btn-info text-light" onClick={() => props.setView('catalog', {})}>
           &#60;  Back to Catalog
         </button>
         {items}
