@@ -131,7 +131,7 @@ export default class CheckoutForm extends React.Component {
       <>
         <div className="modal font-fam" id={this.state.modal} role="dialog">
           <div className="modal-dialog" role="document">
-            <div className="modal-content modal-top">
+            <div className="modal-content modal-top checkout-modal-contetent">
               <div className="modal-body">
                 <p className="mr-5">This is a demo site there are no products for sale</p>
               </div>

@@ -87,7 +87,7 @@ class CartSummaryItem extends React.Component {
       <>
         <div className="modal font-fam" id={this.state.modal} role="dialog">
           <div className="modal-dialog" role="document">
-            <div className="modal-content modal-top">
+            <div className="modal-content modal-top delete-modal">
               <div className="modal-body">
                 <p className="mr-5 text-dark">Are you sure you want to delete this Item</p>
               </div>
