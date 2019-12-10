@@ -4,9 +4,17 @@
     width: 40%;
     border-radius: 20%;
 }
-
+.hide-button{
+    display: none;
+}
 img {
     background-size: contain;
+}
+
+.modal-t {
+    margin-left: 39%;
+    margin-top: 50%;
+    width: 50%;
 }
 
 .arrow-control {
@@ -209,7 +217,7 @@ form {
 .mod {
     font-size: 20px;
     position: fixed;
-    top: 10%;
+    top: 7%;
     left: 18%;
     z-index: 1050;
     width: 100%;
@@ -234,7 +242,6 @@ form {
 
 .prodet {
     margin-top: 3%;
-    height: 36vh;
     width: 33vw;
 }
 
@@ -522,7 +529,6 @@ form {
     }
     .prodet {
         margin-top: 1%;
-        height: 37vh;
         width: 25vw;
         float: right;
         margin-right: 9%;
@@ -690,7 +696,7 @@ form {
     }
     .prodet {
         margin-top: 1%;
-        height: 30vh;
+        /* height: 30vh; */
         width: 70vw;
         float: left;
     }
@@ -824,7 +830,6 @@ form {
     }
     .prodet {
         margin-top: 1%;
-        height: 30vh;
         width: 70vw;
         float: left;
     }
@@ -933,7 +938,6 @@ form {
     }
     .prodet {
         margin-top: 1%;
-        height: 37vh;
         width: 25vw;
         float: right;
         margin-right: 9%;
