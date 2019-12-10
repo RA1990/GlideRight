@@ -5,6 +5,19 @@
     border-radius: 20%;
 }
 
+img {
+    background-size: contain;
+}
+
+.arrow-control {
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.overflow-control {
+    overflow: hidden;
+}
+
 .col-for-cards {
     flex: 0 0 25%;
     max-width: 25%;
@@ -41,8 +54,11 @@ h5 {
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
     background-color: black;
+}
+
+.overflow-x-body {
+    overflow-x: hidden;
 }
 
 .delete {
@@ -302,6 +318,27 @@ form {
         margin-left: 2%;
         font-size: 28px;
     }
+    html, body {
+        max-width: 100%;
+        background-color: black;
+    }
+    .checkout-container {
+        margin-top: 26%;
+        margin-bottom: 9%;
+    }
+    .delete-modal {
+        margin-left: -21%;
+    }
+    .checkout-modal-contetent {
+        margin-top: 77%;
+        margin-left: -22%;
+    }
+    .nav-h {
+        width: 80%
+    }
+    .contact-header {
+        font-size: 40px;
+    }
     .adjust-no-item-button {
         margin-top: 5%;
         margin-left: 46%;
@@ -334,7 +371,7 @@ form {
         margin-bottom: 23%;
     }
     .mod {
-        top: 5%;
+        top: 23%;
         left: 0%;
     }
     .plus-minus-button {
@@ -359,6 +396,15 @@ form {
     .cart {
         margin-left: 0%;
     }
+    .foot {
+        width: 97%;
+    }
+    .nav-h {
+        width: 80%
+    }
+    .delete-modal {
+        margin-left: -14%;
+    }
     .cart-count {
         margin-top: 2.5%;
         margin-left: 3%;
@@ -374,10 +420,10 @@ form {
         font-size: 21px;
     }
     .phone-link, .email-link {
-        font-size: 19px;
+        font-size: 17px;
     }
     .contact-header {
-        font-size: 30px;
+        font-size: 27px;
     }
     .contact {
         margin-right: -23%;
@@ -394,14 +440,15 @@ form {
         margin-left: 3%;
     }
     .checkout-container {
-        margin-top: 33%;
-        margin-bottom: 22%;
+        font-size: 31px;
+        margin-top: 50%;
+        margin-bottom: 24%;
     }
     .place-order {
         height: 4vh;
     }
     .mt {
-        margin-top: 33%;
+        margin-top: 25%;
     }
     .jumbo {
         height: 51vh;
@@ -428,10 +475,14 @@ form {
         margin-left: 15%;
     }
     .checkout {
-        margin-bottom: 52%;
+        margin-bottom: 62%;
     }
     .mod {
         left: 2%;
+    }
+    .checkout-modal-contetent {
+        margin-left: -17%;
+        margin-top: 99%;
     }
 }
 
@@ -440,6 +491,9 @@ form {
     .cart {
         font-size: 3rem;
         margin-left: 0%;
+    }
+    .nav-h {
+        width: 81%;
     }
     .cart-count {
         margin-top: 2.5%;
@@ -522,7 +576,7 @@ form {
         margin-top: 0%;
     }
     .modal-top {
-        width: 80%;
+        width: 47%;
         margin-left: 17%;
         margin-top: 0%;
     }
@@ -543,7 +597,8 @@ form {
         margin-top: 13%;
     }
     .mod {
-        margin-top: 0;
+        margin-top: 10%;
+        margin-left: -5%;
         top: -2%;
     }
     .product-name {
@@ -573,6 +628,9 @@ form {
     .title1 {
         margin-left: -194%;
     }
+    .nav-h {
+        width: 87%;
+    }
     .phone-link, .email-link {
         font-size: 12px;
         width: 22vw;
@@ -592,7 +650,7 @@ form {
     }
     .col-for-cards {
         flex: none;
-        max-width: 90%;
+        max-width: 83%;
     }
     .no-item {
         margin-bottom: 66%;
@@ -604,7 +662,7 @@ form {
         height: 10vh;
     }
     .mod {
-        width: 116%;
+        width: 95%;
         top: 6px;
         left: -28px;
         margin-top: 0;
@@ -696,6 +754,7 @@ form {
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
     /* iphone x */
     .nav-h {
+        width: 86%;
         height: 10vh;
     }
     .no-item {
@@ -748,7 +807,7 @@ form {
         height: 8.2vh;
     }
     .mod {
-        width: 116%;
+        width: 99%;
         top: 6px;
         left: -28px;
         margin-top: 0;
@@ -823,6 +882,12 @@ form {
     }
     .modal-top {
         margin-top: 83%;
+    }
+    .checkout-modal-contetent {
+        width: 86%;
+    }
+    .delete-modal {
+        width: 86%;
     }
 }
 
