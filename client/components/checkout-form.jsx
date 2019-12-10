@@ -12,6 +12,7 @@ export default class CheckoutForm extends React.Component {
     this.state = {
       modal: 'show',
       buttonClass: 'arrow-control',
+      hide: 'hide-button',
       inputs: {
         customerName: {
           placeholder: 'enter name',
@@ -105,7 +106,7 @@ export default class CheckoutForm extends React.Component {
       }
     }
     if (successCounter === 3) {
-      this.setState({ buttonClass: 'pass' });
+      this.setState({ buttonClass: 'pass', hide: 'pass' });
     }
   }
 
@@ -172,7 +173,7 @@ export default class CheckoutForm extends React.Component {
                     </button>
                   </div>
                   <div className="col">
-                    <button onClick={this.handleOrder} type="button" className={'btn place-order btn-primary ' + this.state.buttonClass}>Place Order</button>
+                    <button onClick={this.handleOrder} type="button" className={'btn place-order btn-primary ' + this.state.buttonClass + ' ' + this.state.hide}>Place Order</button>
                   </div>
                 </div>
               </div>
