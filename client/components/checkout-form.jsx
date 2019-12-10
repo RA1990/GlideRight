@@ -31,7 +31,7 @@ export default class CheckoutForm extends React.Component {
         },
         shippingInfo: {
           placeholder: 'Your address, aka: 123 Any St, CA 90210',
-          regex: /^[0-9]{1,5} +[a-zA-Z0-9 -.]{1,},? +[A-Z]{2} +[0-9]{5}$/,
+          regex: /^.*?$/,
           error: 'invaild address',
           displayedError: '',
           value: '',
