@@ -11,7 +11,13 @@ export default class ProductListItem extends React.Component {
     this.modal = this.modal.bind(this);
     this.modalClose = this.modalClose.bind(this);
   }
-
+  componentDidUpdate() {
+    if (this.state.modal === 'hide') {
+      document.documentElement.classList.remove('overflow-control');
+    } else {
+      document.documentElement.classList.add('overflow-control');
+    }
+  }
   modal() {
     document.body.classList.remove('overflow-x-body');
     document.body.classList.add('overflow-control');
