@@ -43,12 +43,10 @@ export default class CheckoutForm extends React.Component {
     };
   }
   componentDidMount() {
-    document.body.classList.remove('overflow-x-body');
-    document.body.classList.add('overflow-control');
+    document.documentElement.classList.add('overflow-control');
   }
   modal() {
-    document.body.classList.add('overflow-x-body');
-    document.body.classList.remove('overflow-control');
+    document.documentElement.classList.remove('overflow-control');
     this.setState({ modal: 'hide' });
   }
   handleOrder() {

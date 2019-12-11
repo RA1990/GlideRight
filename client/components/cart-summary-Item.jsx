@@ -20,6 +20,13 @@ class CartSummaryItem extends React.Component {
       originalPrice: parseInt(this.props.price)
     };
   }
+  componentDidUpdate() {
+    if (this.state.modal === 'hide') {
+      document.documentElement.classList.remove('overflow-control');
+    } else {
+      document.documentElement.classList.add('overflow-control');
+    }
+  }
   modal(event) {
     document.body.classList.remove('overflow-x-body');
     document.body.classList.add('overflow-control');
