@@ -54,6 +54,9 @@ export default class CheckoutForm extends React.Component {
       if (this.state.inputs[inputKey].displayClass === 'text-danger' || this.state.inputs[inputKey].displayClass === 'text-secondary') {
         return;
       }
+      if (this.state.inputs[inputKey].value.length <= 0) {
+        return;
+      }
     }
     this.setState({ placeOrder: true });
     fetch(`/api/delete_all_items.php`)
@@ -70,6 +73,23 @@ export default class CheckoutForm extends React.Component {
     const inputName = input.getAttribute('name');
     const newState = { ...this.state };
     const currentTest = newState.inputs[inputName].regex;
+    if (inputName === 'creditCardInfo') {
+      if (isNaN(value)) {
+        return undefined;
+      }
+      if (value.length > 16) {
+        return undefined;
+      }
+    }
+    if (inputName === 'customerName') {
+      let lastChar = value.substr(value.length - 1);
+      if (!isNaN(lastChar)) {
+        return undefined;
+      }
+      if (value.length > 30) {
+        return undefined;
+      }
+    }
     if (currentTest.test(value)) {
       newState.inputs[inputName].displayClass = 'text-success';
       newState.inputs[inputName].displayedError = '';
