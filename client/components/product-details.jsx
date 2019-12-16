@@ -51,7 +51,7 @@ class ProductDetails extends React.Component {
     if (this.state.product != null) {
       return (
         <div className="container mod font-fam">
-          <div className="card p-5 margin-for-model" key={firstProduct.id}>
+          <div className="card p-5 margin-for-model scroll" key={firstProduct.id}>
             <div><button className="btn btn-primary btc" onClick={() => this.props.click()}>
               &#60;  Back to Catalog
             </button></div>

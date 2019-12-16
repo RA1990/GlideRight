@@ -9,6 +9,11 @@
     display: none;
 }
 
+.scroll {
+    height: 95vh;
+    overflow: auto;
+}
+
 img {
     background-size: contain;
 }
@@ -47,11 +52,11 @@ img {
 }
 
 button, input, p {
-    font-family: Akronim, sans-serif;
+    font-family: Abel, sans-serif;
 }
 
 .font-fam {
-    font-family: Akronim, sans-serif;
+    font-family: Abel, sans-serif;
 }
 
 h5 {
@@ -99,6 +104,7 @@ body {
     color: aliceblue;
     margin-right: 1%;
     margin-left: 0%;
+    margin-top: 1%;
 }
 
 .modal-top {
@@ -174,7 +180,7 @@ body {
 .cart-count {
     margin-left: 1.5%;
     position: absolute;
-    font-size: 34px;
+    font-size: 30px;
     margin-top: 1.5%;
 }
 
@@ -227,7 +233,7 @@ form {
     left: 18%;
     z-index: 1050;
     width: 100%;
-    height: 100%;
+    height: 90%;
     overflow: hidden;
     outline: 0;
 }
@@ -382,6 +388,7 @@ form {
     .mod {
         top: 13%;
         left: 0%;
+        height: 79%;
     }
     .plus-minus-button {
         width: 55%;
@@ -483,6 +490,7 @@ form {
     .mod {
         margin-top: 20%;
         left: 2%;
+        height: 60%;
     }
     .checkout-modal-contetent {
         margin-top: 79%;
@@ -610,12 +618,13 @@ form {
         margin-top: 0%;
         margin-left: -5%;
         top: -2%;
+        height: 100%;
     }
     .product-name {
         font-size: 0px;
     }
     .long-text {
-        font-size: 43%;
+        font-size: 84%;
         font-weight: 900;
     }
     .short-text {
@@ -676,6 +685,7 @@ form {
         top: 6px;
         left: -28px;
         margin-top: 0;
+        height: 100%;
     }
     .cart {
         position: absolute;
@@ -753,7 +763,7 @@ form {
         width: 106%;
     }
     .long-text {
-        font-size: 63%;
+        font-size: 100%;
         font-weight: 900;
     }
     .short-text {
@@ -787,13 +797,13 @@ form {
     }
     .cart-count {
         margin-left: 5.5%;
-        margin-top: 3.5%;
+        margin-top: 4%;
     }
     .title1 {
         margin-left: -194%;
     }
     .phone-link, .email-link {
-        font-size: 12px;
+        font-size: 9px;
         width: 22vw;
     }
     .contact-header {
@@ -822,8 +832,9 @@ form {
     .mod {
         width: 117%;
         top: 6px;
-        left: -28px;
+        left: -30px;
         margin-top: 2%;
+        height: 100%;
     }
     .add-cart {
         text-decoration: none;
@@ -886,7 +897,7 @@ form {
         width: 106%;
     }
     .long-text {
-        font-size: 80%;
+        font-size: 100%;
         font-weight: 900;
     }
     .short-text {
@@ -1024,6 +1035,7 @@ form {
     .mod {
         margin-top: 0;
         top: -2%;
+        height: 100%;
     }
     .product-name {
         font-size: 0px;
@@ -1044,5 +1056,22 @@ form {
         font-weight: normal;
         text-transform: none;
         transition: all 0.2s ease-in-out;
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+    /* iphone 678/plus */
+    .card {
+        margin-left: 25%;
+    }
+    .mod {
+        margin-left: -13%;
+    }
+    .input-width {
+        width: 45%;
+    }
+    .col-for-cards {
+        flex: none;
+        max-width: 75%;
     }
 }
